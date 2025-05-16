@@ -3,10 +3,10 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://psikolograbiabakici.com/
+Host: https://psikolograbiabakici.com
 
 # Sitemaps
-Sitemap:    Sitemap: https://psikolograbiabakici.com/sitemap.xml
+Sitemap: https://psikolograbiabakici.com/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1
