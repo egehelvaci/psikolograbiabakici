@@ -3,10 +3,10 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://psikolograbiabakici.vercel.app
+Host: https://psikolograbiabakici.com/
 
 # Sitemaps
-Sitemap: https://psikolograbiabakici.vercel.app/sitemap.xml
+Sitemap:    Sitemap: https://psikolograbiabakici.com/sitemap.xml
 
 # Crawl delay
 Crawl-delay: 1
