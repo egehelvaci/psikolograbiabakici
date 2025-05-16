@@ -32,8 +32,51 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu",
-  description: "Psikolog Rabia Bakıcı - Çocuk ve ergen psikoloğu uzmanı. Oyun terapisi ve gelişim danışmanlığı hizmetleri.",
+  metadataBase: new URL('https://psikolograbiabakici.vercel.app'),
+  title: {
+    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul",
+    template: "%s | Psikolog Rabia Bakıcı"
+  },
+  description: "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.",
+  keywords: ["psikolog", "çocuk psikoloğu", "ergen psikoloğu", "oyun terapisi", "aile danışmanlığı", "psikolojik değerlendirme", "İstanbul psikolog", "Başakşehir psikolog", "Rabia Bakıcı"],
+  authors: [{ name: "Rabia Bakıcı", url: "https://psikolograbiabakici.vercel.app" }],
+  creator: "Rabia Bakıcı",
+  publisher: "Rabia Bakıcı",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'tr_TR',
+    url: 'https://psikolograbiabakici.vercel.app',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul',
+    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.',
+    siteName: 'Psikolog Rabia Bakıcı',
+    images: [
+      {
+        url: '/images/rabiabakici.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Psikolog Rabia Bakıcı',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu',
+    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.',
+    images: ['/images/rabiabakici.jpg'],
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -46,6 +89,9 @@ export const metadata: Metadata = {
       { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
       { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
+  },
+  verification: {
+    google: 'google-site-verification-code', // Google Search Console doğrulama kodu
   },
 };
 
