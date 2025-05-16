@@ -189,3 +189,20 @@ h1, h2, h3, h4, h5, h6 {
 .whatsapp-color {
   background-color: #25D366;
 }
+
+/* Görsel koruma */
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Sayfada seçim yapılmasını engelleme */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

@@ -9,6 +9,37 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // Görsel koruma fonksiyonu
+  useEffect(() => {
+    const preventImageDownload = (e: MouseEvent) => {
+      if (e.target instanceof HTMLImageElement) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    const preventKeyboardShortcuts = (e: KeyboardEvent) => {
+      // CTRL+S, CTRL+U, F12 tuşlarını engelle
+      if (
+        (e.ctrlKey && (e.key === 's' || e.key === 'u')) ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    // Sağ tıklamayı engelle
+    document.addEventListener('contextmenu', preventImageDownload);
+    // Klavye kısayollarını engelle
+    document.addEventListener('keydown', preventKeyboardShortcuts);
+
+    return () => {
+      document.removeEventListener('contextmenu', preventImageDownload);
+      document.removeEventListener('keydown', preventKeyboardShortcuts);
+    };
+  }, []);
+
   // Sayfa kaydırma durumunu kontrol eden fonksiyon
   useEffect(() => {
     const checkScrollTop = () => {
@@ -86,6 +117,8 @@ export default function Home() {
                   fill
                   className="object-scale-down transform scale-135"
                   sizes="120px"
+                  draggable="false"
+                  onCopy={(e) => e.preventDefault()}
                 />
               </div>
             </Link>
@@ -161,6 +194,8 @@ export default function Home() {
                 className="object-cover"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                draggable="false"
+                onCopy={(e) => e.preventDefault()}
               />
             </div>
           </div>
@@ -229,6 +264,8 @@ export default function Home() {
                 className="object-cover"
                 priority
                 sizes="(max-width: 768px) 256px, 256px"
+                draggable="false"
+                onCopy={(e) => e.preventDefault()}
               />
             </div>
           </div>
@@ -411,6 +448,8 @@ export default function Home() {
                     fill
                     className="object-scale-down transform scale-120 origin-left"
                     sizes="40px"
+                    draggable="false"
+                    onCopy={(e) => e.preventDefault()}
                   />
                 </div>
               </Link>
