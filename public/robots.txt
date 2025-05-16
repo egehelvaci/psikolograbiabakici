@@ -6,4 +6,11 @@ Allow: /
 Host: https://psikolograbiabakici.vercel.app
 
 # Sitemaps
-Sitemap: https://psikolograbiabakici.vercel.app/sitemap.xml 
+Sitemap: https://psikolograbiabakici.vercel.app/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: / 

@@ -72,6 +72,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
+            "@id": "https://psikolograbiabakici.vercel.app",
             "name": "Psikolog Rabia Bakıcı",
             "image": "https://psikolograbiabakici.vercel.app/images/rabiabakici.jpg",
             "url": "https://psikolograbiabakici.vercel.app",
@@ -84,14 +85,25 @@ export default function Home() {
               "addressRegion": "İstanbul",
               "addressCountry": "TR"
             },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-              ],
-              "opens": "09:00",
-              "closes": "18:00"
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "41.0860",
+              "longitude": "28.8026"
             },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "09:00",
+                "closes": "15:00"
+              }
+            ],
             "sameAs": [
               "https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==",
               "https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276"
@@ -100,6 +112,50 @@ export default function Home() {
             "areaServed": {
               "@type": "City",
               "name": "İstanbul"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Psikolojik Hizmetler",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Oyun Terapisi"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Psikolojik Değerlendirme"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Aile Danışmanlığı"
+                  }
+                }
+              ]
+            },
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "name": "Çocuklar için Psikolojik Değerlendirme"
+              },
+              {
+                "@type": "Offer",
+                "name": "Ergen Psikolojik Danışmanlık"
+              }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+905452855283",
+              "contactType": "customer service",
+              "availableLanguage": ["Turkish", "English"],
+              "email": "psikolograbiabakici@gmail.com"
             }
           })
         }}
@@ -178,7 +234,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-light-blue to-light-purple py-12 sm:py-20">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary">Çocuğunuzun Gelişiminde Yanınızdayız</h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary">İstanbul Başakşehir'de Çocuk ve Ergen Psikoloğu Rabia Bakıcı</h1>
             <p className="text-base sm:text-lg mb-8">Oyun terapisi ve çocuk odaklı yaklaşımlarla çocuğunuzun sağlıklı gelişimine destek oluyoruz.</p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <a href="https://wa.me/905452855283?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-primary text-center">Randevu Al</a>
@@ -205,7 +261,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="hizmetler" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Hizmetlerimiz</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Psikolog Rabia Bakıcı - Uzman Psikolojik Danışmanlık Hizmetlerimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Service Card 1 */}
             <article className="bg-light-yellow rounded-kiddy shadow-kiddy p-6 transition-transform hover:transform hover:scale-105">
@@ -270,7 +326,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-4xl font-bold mb-6">Hakkımda</h2>
+            <h2 className="text-4xl font-bold mb-6">Psikolog Rabia Bakıcı Kimdir?</h2>
             <p className="text-lg mb-4">
               Merhaba, ben Psikolog Rabia Bakıcı. Çocuk ve ergen psikolojisi alanında 5 yılı aşkın deneyime sahibim.
             </p>
@@ -287,7 +343,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Danışan Yorumları</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Danışanlarımızın Yorumları</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <article className="bg-light-blue rounded-kiddy shadow-kiddy p-6">
@@ -322,7 +378,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="iletisim" className="py-12 sm:py-16 bg-light-purple">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">İletişim</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">İstanbul Başakşehir'de Psikolog - İletişim Bilgilerimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div className="order-2 md:order-1">
               <h3 className="text-xl sm:text-2xl font-bold mb-4">Bize Ulaşın</h3>

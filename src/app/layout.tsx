@@ -34,11 +34,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://psikolograbiabakici.vercel.app'),
   title: {
-    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul",
+    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir",
     template: "%s | Psikolog Rabia Bakıcı"
   },
-  description: "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.",
-  keywords: ["psikolog", "çocuk psikoloğu", "ergen psikoloğu", "oyun terapisi", "aile danışmanlığı", "psikolojik değerlendirme", "İstanbul psikolog", "Başakşehir psikolog", "Rabia Bakıcı"],
+  description: "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83",
+  keywords: ["psikolog", "çocuk psikoloğu", "ergen psikoloğu", "oyun terapisi", "aile danışmanlığı", "psikolojik değerlendirme", "İstanbul psikolog", "Başakşehir psikolog", "Rabia Bakıcı", "İstanbul Başakşehir psikolog", "çocuklarda davranış problemleri", "çocuk psikolojisi", "psikolojik destek"],
   authors: [{ name: "Rabia Bakıcı", url: "https://psikolograbiabakici.vercel.app" }],
   creator: "Rabia Bakıcı",
   publisher: "Rabia Bakıcı",
@@ -50,6 +50,7 @@ export const metadata: Metadata = {
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
   alternates: {
@@ -59,22 +60,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://psikolograbiabakici.vercel.app',
-    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul',
-    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir',
+    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83',
     siteName: 'Psikolog Rabia Bakıcı',
     images: [
       {
         url: '/images/rabiabakici.jpg',
         width: 1200,
         height: 630,
-        alt: 'Psikolog Rabia Bakıcı',
+        alt: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu',
-    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir',
+    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83',
     images: ['/images/rabiabakici.jpg'],
   },
   icons: {
