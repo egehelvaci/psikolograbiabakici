@@ -75,18 +75,20 @@ export default function Home() {
       />
 
       {/* Header/Navbar */}
-      <header className="bg-[#f0ede9] py-4 shadow-md">
+      <header className="bg-[#f0ede9] py-4 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="relative w-24 h-24">
-              <Image
-                src="/images/logo.jpg"
-                alt="Psikolog Rabia Bakıcı Logo"
-                fill
-                className="object-scale-down transform scale-135"
-                sizes="120px"
-              />
-            </div>
+            <Link href="/">
+              <div className="relative w-24 h-24">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Psikolog Rabia Bakıcı Logo"
+                  fill
+                  className="object-scale-down transform scale-135"
+                  sizes="120px"
+                />
+              </div>
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -401,15 +403,17 @@ export default function Home() {
         <div className="container mx-auto px-20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-8 md:mb-2">
-              <div className="relative w-10 h-10 overflow-visible">
-                <Image
-                  src="/images/logo.jpg"
-                  alt="Psikolog Rabia Bakıcı Logo"
-                  fill
-                  className="object-scale-down transform scale-120 origin-left"
-                  sizes="40px"
-                />
-              </div>
+              <Link href="/">
+                <div className="relative w-10 h-10 overflow-visible">
+                  <Image
+                    src="/images/logo.jpg"
+                    alt="Psikolog Rabia Bakıcı Logo"
+                    fill
+                    className="object-scale-down transform scale-120 origin-left"
+                    sizes="40px"
+                  />
+                </div>
+              </Link>
               <h2 className="text-lg sm:text-xl font-bold">Psikolog Rabia Bakıcı</h2>
             </div>
             <div className="text-center md:text-right">
