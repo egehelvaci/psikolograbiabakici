@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header/Navbar */}
@@ -9,9 +14,34 @@ export default function Home() {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <span className="text-3xl text-primary">🧩</span>
-            <h1 className="text-2xl font-bold text-primary">Psikolog Rabia Bakıcı</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-primary">Psikolog Rabia Bakıcı</h1>
           </div>
-          <nav>
+          
+          {/* Mobile menu button */}
+          <button 
+            className="md:hidden flex items-center"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+          >
+            <svg 
+              className="w-6 h-6 text-primary" 
+              fill="none" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth="2" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              {menuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+          
+          {/* Desktop menu */}
+          <nav className="hidden md:block">
             <ul className="flex space-x-6">
               <li><Link href="/" className="font-medium hover:text-primary transition-colors">Ana Sayfa</Link></li>
               <li><Link href="#hizmetler" className="font-medium hover:text-primary transition-colors">Hizmetler</Link></li>
@@ -20,21 +50,33 @@ export default function Home() {
             </ul>
           </nav>
         </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <nav className="md:hidden py-4 px-4 bg-white border-t">
+            <ul className="flex flex-col space-y-3">
+              <li><Link href="/" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Ana Sayfa</Link></li>
+              <li><Link href="#hizmetler" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hizmetler</Link></li>
+              <li><Link href="#hakkimda" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hakkımda</Link></li>
+              <li><Link href="#iletisim" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>İletişim</Link></li>
+            </ul>
+          </nav>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-light-blue to-light-purple py-20">
+      <section className="bg-gradient-to-b from-light-blue to-light-purple py-12 sm:py-20">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Çocuğunuzun Gelişiminde Yanınızdayız</h2>
-            <p className="text-lg mb-8">Oyun terapisi ve çocuk odaklı yaklaşımlarla çocuğunuzun sağlıklı gelişimine destek oluyoruz.</p>
-            <div className="flex space-x-4">
-              <a href="https://wa.me/905452855283?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-primary">Randevu Al</a>
-              <a href="https://wa.me/905452855283?text=Merhaba%2C%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-secondary">Bilgi Al</a>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary">Çocuğunuzun Gelişiminde Yanınızdayız</h2>
+            <p className="text-base sm:text-lg mb-8">Oyun terapisi ve çocuk odaklı yaklaşımlarla çocuğunuzun sağlıklı gelişimine destek oluyoruz.</p>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <a href="https://wa.me/905452855283?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-primary text-center">Randevu Al</a>
+              <a href="https://wa.me/905452855283?text=Merhaba%2C%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-secondary text-center">Bilgi Al</a>
             </div>
           </div>
-          <div className="lg:w-1/2 flex justify-center">
-            <div className="relative w-full max-w-md h-80 rounded-kiddy shadow-kiddy overflow-hidden bg-white">
+          <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+            <div className="relative w-full max-w-sm sm:max-w-md h-64 sm:h-80 rounded-kiddy shadow-kiddy overflow-hidden bg-white">
               <Image
                 src="/images/family.jpg"
                 alt="Aile ve çocuk görseli"
@@ -160,63 +202,71 @@ export default function Home() {
       </section>
       
       {/* Contact Section */}
-      <section id="iletisim" className="py-16 bg-light-purple">
+      <section id="iletisim" className="py-12 sm:py-16 bg-light-purple">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">İletişim</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Bize Ulaşın</h3>
-              <p className="flex items-center mb-4">
-                <span className="mr-2">📍</span> 
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">İletişim</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            <div className="order-2 md:order-1">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4">Bize Ulaşın</h3>
+              <p className="flex items-center mb-4 text-base sm:text-lg">
+                <span className="mr-2 text-2xl">📍</span> 
                 İstanbul, Başakşehir
               </p>
-              <p className="flex items-center mb-4">
-                <span className="mr-2">📞</span>
-                +90 (545) 285 52 83
+              <p className="flex items-center mb-4 text-base sm:text-lg">
+                <span className="mr-2 text-2xl">📞</span>
+                <a href="tel:+905452855283" className="hover:text-primary transition-colors">
+                  +90 (545) 285 52 83
+                </a>
               </p>
-              <p className="flex items-center mb-4">
-                <span className="mr-2">✉️</span>
-                psikolograbiabakici@gmail.com
+              <p className="flex items-center mb-4 text-base sm:text-lg">
+                <span className="mr-2 text-2xl">✉️</span>
+                <a href="mailto:psikolograbiabakici@gmail.com" className="hover:text-primary transition-colors">
+                  psikolograbiabakici@gmail.com
+                </a>
               </p>
-              <p className="flex items-center mb-8">
-                <span className="mr-2">⏰</span>
+              <p className="flex items-center mb-8 text-base sm:text-lg">
+                <span className="mr-2 text-2xl">⏰</span>
                 Pazartesi - Cumartesi: 09:00 - 18:00
               </p>
-              <div className="flex space-x-4">
-                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-secondary transition-colors">📸</a>
-                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-secondary transition-colors">💼</a>
-                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-secondary transition-colors">📱</a>
+              <div className="flex space-x-6">
+                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">📸</a>
+                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">💼</a>
+                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">📱</a>
               </div>
             </div>
-            <div>
+            <div className="order-1 md:order-2">
               <form className="bg-white rounded-kiddy shadow-kiddy p-6">
                 <div className="mb-4">
-                  <label className="block mb-2 font-medium">Ad Soyad</label>
+                  <label htmlFor="name" className="block mb-2 font-medium">Ad Soyad</label>
                   <input 
+                    id="name"
                     type="text" 
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Adınız Soyadınız"
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block mb-2 font-medium">E-posta</label>
+                  <label htmlFor="email" className="block mb-2 font-medium">E-posta</label>
                   <input 
+                    id="email"
                     type="email" 
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="ornek@mail.com"
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block mb-2 font-medium">Telefon</label>
+                  <label htmlFor="phone" className="block mb-2 font-medium">Telefon</label>
                   <input 
+                    id="phone"
                     type="tel" 
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="+90 (___) ___ __ __"
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block mb-2 font-medium">Mesajınız</label>
+                  <label htmlFor="message" className="block mb-2 font-medium">Mesajınız</label>
                   <textarea 
+                    id="message"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary h-32"
                     placeholder="Mesajınızı buraya yazın..."
                   ></textarea>
@@ -236,19 +286,19 @@ export default function Home() {
       </section>
       
       {/* Footer */}
-      <footer className="bg-primary text-white py-8">
+      <footer className="bg-primary text-white py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <span className="text-3xl">🧩</span>
-              <h2 className="text-xl font-bold">Psikolog Rabia Bakıcı</h2>
+            <div className="flex items-center space-x-2 mb-6 md:mb-0">
+              <span className="text-2xl sm:text-3xl">🧩</span>
+              <h2 className="text-lg sm:text-xl font-bold">Psikolog Rabia Bakıcı</h2>
             </div>
-            <div>
-              <p>&copy; 2023 Tüm Hakları Saklıdır.</p>
-              <div className="flex space-x-4 mt-3 justify-center md:justify-end">
-                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-xl hover:opacity-80 transition-opacity">📸</a>
-                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-xl hover:opacity-80 transition-opacity">💼</a>
-                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-xl hover:opacity-80 transition-opacity">📱</a>
+            <div className="text-center md:text-right">
+              <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} Tüm Hakları Saklıdır.</p>
+              <div className="flex space-x-6 mt-3 justify-center md:justify-end">
+                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">📸</a>
+                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">💼</a>
+                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">📱</a>
               </div>
             </div>
           </div>

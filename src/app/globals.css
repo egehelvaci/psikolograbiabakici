@@ -44,12 +44,20 @@
 
 html {
   color-scheme: light !important;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
   background: var(--background) !important;
   color: var(--foreground) !important;
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -72,6 +80,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-primary:hover {
@@ -86,9 +96,57 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 15px -3px rgba(247, 37, 133, 0.3);
+}
+
+/* Responsive konteyner ayarları */
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Dokunma alanı iyileştirmeleri */
+@media (max-width: 640px) {
+  input, 
+  textarea, 
+  select, 
+  button,
+  a.btn-primary,
+  a.btn-secondary {
+    font-size: 16px; /* Mobil tarayıcılarda yakınlaştırmayı önlemek için */
+    padding: 0.75rem 1rem;
+  }
 }

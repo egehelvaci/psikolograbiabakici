@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Baloo_2, Bubblegum_Sans } from "next/font/google";
@@ -24,6 +24,12 @@ const bubblegum = Bubblegum_Sans({
   subsets: ["latin"],
   weight: "400",
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu",
