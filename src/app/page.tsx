@@ -75,11 +75,18 @@ export default function Home() {
       />
 
       {/* Header/Navbar */}
-      <header className="bg-white py-4 shadow-md">
+      <header className="bg-[#f0ede9] py-4 shadow-md">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <span className="text-3xl text-primary" aria-hidden="true">🧩</span>
-            <h1 className="text-xl sm:text-2xl font-bold text-primary">Psikolog Rabia Bakıcı</h1>
+            <div className="relative w-24 h-24">
+              <Image
+                src="/images/logo.jpg"
+                alt="Psikolog Rabia Bakıcı Logo"
+                fill
+                className="object-scale-down transform scale-135"
+                sizes="120px"
+              />
+            </div>
           </div>
           
           {/* Mobile menu button */}
@@ -91,7 +98,7 @@ export default function Home() {
             aria-controls="mobile-menu"
           >
             <svg 
-              className="w-6 h-6 text-primary" 
+              className="w-6 h-6 text-gray-800" 
               fill="none" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
@@ -111,22 +118,22 @@ export default function Home() {
           {/* Desktop menu */}
           <nav className="hidden md:block" aria-label="Ana Menü">
             <ul className="flex space-x-6">
-              <li><Link href="/" className="font-medium hover:text-primary transition-colors">Ana Sayfa</Link></li>
-              <li><Link href="#hizmetler" className="font-medium hover:text-primary transition-colors">Hizmetler</Link></li>
-              <li><Link href="#hakkimda" className="font-medium hover:text-primary transition-colors">Hakkımda</Link></li>
-              <li><Link href="#iletisim" className="font-medium hover:text-primary transition-colors">İletişim</Link></li>
+              <li><Link href="/" className="font-medium text-gray-800 hover:text-primary transition-colors">Ana Sayfa</Link></li>
+              <li><Link href="#hizmetler" className="font-medium text-gray-800 hover:text-primary transition-colors">Hizmetler</Link></li>
+              <li><Link href="#hakkimda" className="font-medium text-gray-800 hover:text-primary transition-colors">Hakkımda</Link></li>
+              <li><Link href="#iletisim" className="font-medium text-gray-800 hover:text-primary transition-colors">İletişim</Link></li>
             </ul>
           </nav>
         </div>
 
         {/* Mobile menu */}
         {menuOpen && (
-          <nav className="md:hidden py-4 px-4 bg-white border-t" id="mobile-menu" aria-label="Mobil Menü">
+          <nav className="md:hidden py-4 px-4 bg-[#f0ede9] border-t border-gray-200" id="mobile-menu" aria-label="Mobil Menü">
             <ul className="flex flex-col space-y-3">
-              <li><Link href="/" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Ana Sayfa</Link></li>
-              <li><Link href="#hizmetler" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hizmetler</Link></li>
-              <li><Link href="#hakkimda" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hakkımda</Link></li>
-              <li><Link href="#iletisim" className="block font-medium hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>İletişim</Link></li>
+              <li><Link href="/" className="block font-medium text-gray-800 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Ana Sayfa</Link></li>
+              <li><Link href="#hizmetler" className="block font-medium text-gray-800 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hizmetler</Link></li>
+              <li><Link href="#hakkimda" className="block font-medium text-gray-800 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>Hakkımda</Link></li>
+              <li><Link href="#iletisim" className="block font-medium text-gray-800 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>İletişim</Link></li>
             </ul>
           </nav>
         )}
@@ -390,11 +397,19 @@ export default function Home() {
       </section>
       
       {/* Footer */}
-      <footer className="bg-primary text-white py-6 sm:py-8">
-        <div className="container mx-auto px-4">
+      <footer className="bg-[#f0ede9] text-gray-800 py-6 sm:py-8">
+        <div className="container mx-auto px-20">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-6 md:mb-0">
-              <span className="text-2xl sm:text-3xl" aria-hidden="true">🧩</span>
+            <div className="flex items-center space-x-3 mb-8 md:mb-2">
+              <div className="relative w-10 h-10 overflow-visible">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Psikolog Rabia Bakıcı Logo"
+                  fill
+                  className="object-scale-down transform scale-120 origin-left"
+                  sizes="40px"
+                />
+              </div>
               <h2 className="text-lg sm:text-xl font-bold">Psikolog Rabia Bakıcı</h2>
             </div>
             <div className="text-center md:text-right">
@@ -404,7 +419,7 @@ export default function Home() {
                   title="Instagram" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity"
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity text-gray-800"
                   aria-label="Instagram sayfamız">
                   <span className="flex flex-col items-center">
                     <span aria-hidden="true">📸</span>
@@ -415,7 +430,7 @@ export default function Home() {
                   title="LinkedIn" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity"
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity text-gray-800"
                   aria-label="LinkedIn profilimiz">
                   <span className="flex flex-col items-center">
                     <span aria-hidden="true">💼</span>
@@ -426,7 +441,7 @@ export default function Home() {
                   title="WhatsApp" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity"
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity text-gray-800"
                   aria-label="WhatsApp üzerinden iletişim">
                   <span className="flex flex-col items-center">
                     <span aria-hidden="true">📱</span>
