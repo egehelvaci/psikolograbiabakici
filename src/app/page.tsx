@@ -2,13 +2,36 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Sayfa kaydırma durumunu kontrol eden fonksiyon
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScrollTop && window.pageYOffset > 400) {
+        setShowScrollTop(true);
+      } else if (showScrollTop && window.pageYOffset <= 400) {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollTop);
+    return () => window.removeEventListener('scroll', checkScrollTop);
+  }, [showScrollTop]);
+
+  // Başa dön butonuna tıklandığında çalışacak fonksiyon
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
       {/* Header/Navbar */}
       <header className="bg-white py-4 shadow-md">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -228,10 +251,28 @@ export default function Home() {
                 <span className="mr-2 text-2xl">⏰</span>
                 Pazartesi - Cumartesi: 09:00 - 18:00
               </p>
-              <div className="flex space-x-6">
-                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">📸</a>
-                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">💼</a>
-                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-secondary transition-colors">📱</a>
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button flex items-center instagram-gradient text-white py-2 px-4 rounded-full shadow-md">
+                  <span className="text-2xl mr-2">📸</span>
+                  <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button flex items-center linkedin-color text-white py-2 px-4 rounded-full shadow-md">
+                  <span className="text-2xl mr-2">💼</span>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://wa.me/905452855283" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button flex items-center whatsapp-color text-white py-2 px-4 rounded-full shadow-md">
+                  <span className="text-2xl mr-2">📱</span>
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -296,14 +337,62 @@ export default function Home() {
             <div className="text-center md:text-right">
               <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} Tüm Hakları Saklıdır.</p>
               <div className="flex space-x-6 mt-3 justify-center md:justify-end">
-                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">📸</a>
-                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">💼</a>
-                <a href="https://wa.me/905452855283" target="_blank" rel="noopener noreferrer" className="text-xl sm:text-2xl hover:opacity-80 transition-opacity">📱</a>
+                <a href="https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==" 
+                  title="Instagram" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity">
+                  <span className="flex flex-col items-center">
+                    <span>📸</span>
+                    <span className="text-xs">Instagram</span>
+                  </span>
+                </a>
+                <a href="https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                  title="LinkedIn" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity">
+                  <span className="flex flex-col items-center">
+                    <span>💼</span>
+                    <span className="text-xs">LinkedIn</span>
+                  </span>
+                </a>
+                <a href="https://wa.me/905452855283" 
+                  title="WhatsApp" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-button text-xl sm:text-2xl hover:opacity-80 transition-opacity">
+                  <span className="flex flex-col items-center">
+                    <span>📱</span>
+                    <span className="text-xs">WhatsApp</span>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Başa Dön Butonu */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed right-6 bottom-6 bg-primary text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 transform hover:scale-110 pulse"
+          aria-label="Sayfanın başına dön"
+        >
+          <svg 
+            className="w-6 h-6" 
+            fill="none" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="2" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
