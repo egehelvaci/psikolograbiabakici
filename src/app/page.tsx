@@ -401,7 +401,7 @@ export default function Home() {
                 </p>
                 <p className="flex items-center mb-8 text-base sm:text-lg">
                   <span className="mr-2 text-2xl" aria-hidden="true">⏰</span>
-                  Pazartesi - Cumartesi: 09:00 - 18:00
+                  Pazartesi - Salı: 12:00 - 19:00
                 </p>
               </address>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
