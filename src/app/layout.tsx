@@ -33,14 +33,26 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://psikolograbiabakici.vercel.app'),
+  metadataBase: new URL('https://psikolograbiabakici.com'),
   title: {
-    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir",
+    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir - Oyun Terapisi",
     template: "%s | Psikolog Rabia Bakıcı"
   },
-  description: "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83",
-  keywords: ["psikolog", "çocuk psikoloğu", "ergen psikoloğu", "oyun terapisi", "aile danışmanlığı", "psikolojik değerlendirme", "İstanbul psikolog", "Başakşehir psikolog", "Rabia Bakıcı", "İstanbul Başakşehir psikolog", "çocuklarda davranış problemleri", "çocuk psikolojisi", "psikolojik destek"],
-  authors: [{ name: "Rabia Bakıcı", url: "https://psikolograbiabakici.vercel.app" }],
+  description: "🎯 Psikolog Rabia Bakıcı - İstanbul Başakşehir'de uzman çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı, kaygı tedavisi ve psikolojik değerlendirme. 5+ yıl deneyim ✨ Randevu: +90 (545) 285 52 83",
+  keywords: [
+    // Ana anahtar kelimeler
+    "psikolog rabia bakıcı", "çocuk psikoloğu istanbul", "ergen psikoloğu başakşehir", 
+    "oyun terapisi istanbul", "çocuk psikoloğu başakşehir", "psikolog başakşehir",
+    // Hizmet odaklı kelimeler
+    "aile danışmanlığı istanbul", "çocuk kaygı tedavisi", "psikolojik değerlendirme çocuk",
+    "davranış problemleri çocuk", "sosyal beceri geliştirme", "eğitim danışmanlığı",
+    // Lokasyon bazlı
+    "istanbul psikolog", "başakşehir psikoloji", "çocuk terapisti istanbul",
+    // Uzun kuyruk kelimeler
+    "çocuklarda dikkat eksikliği tedavisi", "okul fobisi tedavisi", "çocuk özgüven geliştirme",
+    "ergen psikolojik destek", "aile terapisi istanbul", "çocuk gelişim uzmanı"
+  ],
+  authors: [{ name: "Rabia Bakıcı", url: "https://psikolograbiabakici.com" }],
   creator: "Rabia Bakıcı",
   publisher: "Rabia Bakıcı",
   robots: {
@@ -60,9 +72,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
-    url: 'https://psikolograbiabakici.vercel.app',
-    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir',
-    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83',
+    url: 'https://psikolograbiabakici.com',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir - Oyun Terapisi',
+    description: '🎯 Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de uzman çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı, kaygı tedavisi ve psikolojik değerlendirme. 5+ yıl deneyim ✨ Randevu: +90 (545) 285 52 83',
     siteName: 'Psikolog Rabia Bakıcı',
     images: [
       {
@@ -75,8 +87,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir',
-    description: 'Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri. +90 (545) 285 52 83',
+    title: 'Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir - Oyun Terapisi',
+    description: '🎯 Psikolog Rabia Bakıcı - İstanbul Başakşehir\'de uzman çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı, kaygı tedavisi ve psikolojik değerlendirme. 5+ yıl deneyim ✨',
     images: ['/images/rabiabakici.jpg'],
   },
   icons: {
@@ -93,8 +105,14 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: 'google-site-verification-code', // Google Search Console doğrulama kodu
+    google: 'google-site-verification-code', // Google Search Console doğrulama kodu buraya gelecek
+    yandex: 'yandex-verification-code', // Yandex Webmaster doğrulama kodu
+    other: {
+      'msvalidate.01': 'bing-site-verification-code', // Bing Webmaster doğrulama kodu
+    },
   },
+  category: 'health',
+  classification: 'Psychology Practice',
 };
 
 export default function RootLayout({

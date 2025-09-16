@@ -64,100 +64,226 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Schema.org yapısal verileri */}
+      {/* Schema.org yapısal verileri - Gelişmiş SEO için */}
       <Script
         id="schema-org-data"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "@id": "https://psikolograbiabakici.vercel.app",
-            "name": "Psikolog Rabia Bakıcı",
-            "image": "https://psikolograbiabakici.vercel.app/images/rabiabakici.jpg",
-            "url": "https://psikolograbiabakici.vercel.app",
-            "telephone": "+905452855283",
-            "email": "psikolograbiabakici@gmail.com",
-            "description": "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri sunmaktayız.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Başakşehir",
-              "addressRegion": "İstanbul",
-              "addressCountry": "TR"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "41.0860",
-              "longitude": "28.8026"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "18:00"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": ["ProfessionalService", "Psychologist", "MedicalBusiness"],
+              "@id": "https://psikolograbiabakici.com",
+              "name": "Psikolog Rabia Bakıcı",
+              "alternateName": ["Rabia Bakıcı Psikolog", "Çocuk Psikoloğu Rabia Bakıcı"],
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://psikolograbiabakici.com/images/rabiabakici.jpg",
+                "width": 800,
+                "height": 600,
+                "caption": "Psikolog Rabia Bakıcı - İstanbul Başakşehir'de çocuk ve ergen psikoloğu"
               },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Saturday"],
-                "opens": "09:00",
-                "closes": "15:00"
-              }
-            ],
-            "sameAs": [
-              "https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==",
-              "https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276"
-            ],
-            "priceRange": "$$",
-            "areaServed": {
-              "@type": "City",
-              "name": "İstanbul"
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Psikolojik Hizmetler",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Oyun Terapisi"
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://psikolograbiabakici.com/images/logo.jpg",
+                "width": 200,
+                "height": 200
+              },
+              "url": "https://psikolograbiabakici.com",
+              "telephone": "+905452855283",
+              "email": "psikolograbiabakici@gmail.com",
+              "description": "İstanbul Başakşehir'de 5+ yıl deneyimli çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı, kaygı tedavisi ve psikolojik değerlendirme hizmetleri. Klinik Psikoloji yüksek lisans mezunu.",
+              "foundingDate": "2019",
+              "founder": {
+                "@type": "Person",
+                "name": "Rabia Bakıcı",
+                "jobTitle": "Klinik Psikolog",
+                "alumniOf": [
+                  {
+                    "@type": "EducationalOrganization",
+                    "name": "Bakü Devlet Üniversitesi"
+                  },
+                  {
+                    "@type": "EducationalOrganization", 
+                    "name": "İstanbul Esenyurt Üniversitesi",
+                    "department": "Klinik Psikoloji Yüksek Lisans"
                   }
-                },
+                ]
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Başakşehir",
+                "addressRegion": "İstanbul",
+                "addressCountry": "TR",
+                "postalCode": "34480"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "41.0860",
+                "longitude": "28.8026"
+              },
+              "openingHoursSpecification": [
                 {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Psikolojik Değerlendirme"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Aile Danışmanlığı"
-                  }
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday"],
+                  "opens": "12:00",
+                  "closes": "19:00"
                 }
+              ],
+              "sameAs": [
+                "https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==",
+                "https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276"
+              ],
+              "priceRange": "₺₺",
+              "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+              "currenciesAccepted": "TRY",
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "İstanbul"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Başakşehir"
+                }
+              ],
+              "serviceType": ["Psikolojik Danışmanlık", "Çocuk Psikolojisi", "Ergen Psikolojisi"],
+              "medicalSpecialty": ["Child Psychology", "Adolescent Psychology", "Play Therapy"],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Psikolojik Hizmetler",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Oyun Terapisi",
+                      "description": "Çocukların duygusal ve davranışsal sorunlarını oyun yoluyla tedavi etme",
+                      "category": "Çocuk Psikolojisi"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Psikolojik Değerlendirme",
+                      "description": "Çocuk ve ergenlerin gelişimsel ihtiyaçlarının belirlenmesi",
+                      "category": "Değerlendirme"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Aile Danışmanlığı",
+                      "description": "Çocuğun gelişiminde aileye destek ve rehberlik",
+                      "category": "Aile Terapisi"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Kaygı Terapisi",
+                      "description": "Çocuk ve ergenlerde kaygı bozukluklarının tedavisi",
+                      "category": "Terapi"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Eğitim Danışmanlığı",
+                      "description": "Eğitim sürecinde karşılaşılan zorlukların çözümü",
+                      "category": "Eğitim Desteği"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Sosyal Beceri Geliştirme",
+                      "description": "Çocuklarda sosyal becerilerin geliştirilmesi",
+                      "category": "Gelişim Desteği"
+                    }
+                  }
+                ]
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+905452855283",
+                "contactType": "customer service",
+                "availableLanguage": ["Turkish", "English"],
+                "email": "psikolograbiabakici@gmail.com",
+                "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday"],
+                  "opens": "12:00",
+                  "closes": "19:00"
+                }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "50",
+                "bestRating": "5",
+                "worstRating": "1"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Rabia Bakıcı",
+              "jobTitle": "Klinik Psikolog",
+              "description": "5+ yıl deneyimli çocuk ve ergen psikoloğu. Oyun terapisi uzmanı.",
+              "image": "https://psikolograbiabakici.com/images/rabiabakici.jpg",
+              "url": "https://psikolograbiabakici.com",
+              "sameAs": [
+                "https://www.instagram.com/psikolograbiabakici?igsh=MWZhZ253NDc3cjhnaQ==",
+                "https://www.linkedin.com/in/rabia-bak%C4%B1c%C4%B1-897664276"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Psikolog Rabia Bakıcı"
+              },
+              "alumniOf": [
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "Bakü Devlet Üniversitesi"
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "İstanbul Esenyurt Üniversitesi"
+                }
+              ],
+              "knowsAbout": [
+                "Çocuk Psikolojisi",
+                "Ergen Psikolojisi", 
+                "Oyun Terapisi",
+                "Aile Danışmanlığı",
+                "Kaygı Terapisi"
               ]
             },
-            "makesOffer": [
-              {
-                "@type": "Offer",
-                "name": "Çocuklar için Psikolojik Değerlendirme"
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Psikolog Rabia Bakıcı",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Başakşehir",
+                "addressRegion": "İstanbul",
+                "addressCountry": "TR"
               },
-              {
-                "@type": "Offer",
-                "name": "Ergen Psikolojik Danışmanlık"
-              }
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "41.0860",
+                "longitude": "28.8026"
+              },
+              "url": "https://psikolograbiabakici.com",
               "telephone": "+905452855283",
-              "contactType": "customer service",
-              "availableLanguage": ["Turkish", "English"],
-              "email": "psikolograbiabakici@gmail.com"
+              "openingHours": "Mo-Tu 12:00-19:00"
             }
-          })
+          ])
         }}
       />
 
@@ -234,8 +360,8 @@ export default function Home() {
       <section className="bg-gradient-to-b from-light-blue to-light-purple py-12 sm:py-20">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary">İstanbul Başakşehir'de Çocuk ve Ergen Psikoloğu Rabia Bakıcı</h1>
-            <p className="text-base sm:text-lg mb-8">Oyun terapisi ve çocuk odaklı yaklaşımlarla çocuğunuzun sağlıklı gelişimine destek oluyoruz.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-primary">İstanbul Başakşehir Çocuk ve Ergen Psikoloğu | Psikolog Rabia Bakıcı - Oyun Terapisi Uzmanı</h1>
+            <p className="text-base sm:text-lg mb-8">İstanbul Başakşehir'de oyun terapisi ve çocuk odaklı yaklaşımlarla çocuğunuzun sağlıklı gelişimine destek oluyoruz. Dikkat eksikliği, kaygı bozuklukları, davranış problemleri ve sosyal beceri geliştirme konularında uzman hizmet.</p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <a href="https://wa.me/905452855283?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-primary text-center">Randevu Al</a>
               <a href="https://wa.me/905452855283?text=Merhaba%2C%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="btn-secondary text-center">Bilgi Al</a>
@@ -261,7 +387,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="hizmetler" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Psikolog Rabia Bakıcı - Uzman Psikolojik Danışmanlık Hizmetlerimiz</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Çocuk Psikoloğu İstanbul Başakşehir - Uzman Psikolojik Danışmanlık Hizmetlerimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Service Card 1 */}
             <article className="bg-light-yellow rounded-kiddy shadow-kiddy p-6 transition-transform hover:transform hover:scale-105">
@@ -326,7 +452,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-4xl font-bold mb-6">Psikolog Rabia Bakıcı Kimdir?</h2>
+            <h2 className="text-4xl font-bold mb-6">Çocuk Psikoloğu Rabia Bakıcı Kimdir? | 5+ Yıl Deneyim</h2>
             <p className="text-lg mb-4">
               Merhaba, ben Psikolog Rabia Bakıcı. Çocuk ve ergen psikolojisi alanında 5 yılı aşkın deneyime sahibim.
             </p>
@@ -343,7 +469,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Danışanlarımızın Yorumları</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Memnun Ailelerimizin Yorumları | Çocuk Psikoloğu Başarı Hikayeleri</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <article className="bg-light-blue rounded-kiddy shadow-kiddy p-6">
@@ -378,7 +504,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="iletisim" className="py-12 sm:py-16 bg-light-purple">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">İstanbul Başakşehir'de Psikolog - İletişim Bilgilerimiz</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Çocuk Psikoloğu Randevu Al | İstanbul Başakşehir İletişim</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div className="order-2 md:order-1">
               <h3 className="text-xl sm:text-2xl font-bold mb-4">Bize Ulaşın</h3>

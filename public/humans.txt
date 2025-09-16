@@ -1,0 +1,39 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    Psikolog: Rabia Bakıcı
+    Contact: psikolograbiabakici [at] gmail.com
+    Instagram: @psikolograbiabakici
+    LinkedIn: /in/rabia-bakıcı-897664276
+    Location: İstanbul, Başakşehir, Turkey
+
+# SITE
+    Last update: 2025/01/15
+    Language: Turkish / English
+    Doctype: HTML5
+    IDE: Cursor, VS Code
+    
+# TECHNOLOGY
+    Framework: Next.js 15
+    Styling: Tailwind CSS
+    Font: Baloo 2, Bubblegum Sans
+    Hosting: Vercel
+    Analytics: Google Analytics
+    
+# SPECIALIZATION
+    Child Psychology
+    Adolescent Psychology
+    Play Therapy
+    Family Counseling
+    Anxiety Therapy
+    Educational Counseling
+    Social Skills Development
+    
+# EDUCATION
+    Bachelor: Bakü Devlet Üniversitesi
+    Master: İstanbul Esenyurt Üniversitesi - Clinical Psychology
+    
+# EXPERIENCE
+    5+ years in child and adolescent psychology
+    Specialization in play therapy and behavioral problems
