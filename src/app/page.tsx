@@ -68,6 +68,42 @@ const TESTIMONIALS = [
     name: "Zeynep T.",
     role: "Anne",
   },
+  {
+    quote:
+      "Davranış problemleri olan oğlumuz için aylarca çare aradık. Oyun terapisi seanslarından sonra öfke nöbetleri belirgin şekilde azaldı, evimize huzur geldi.",
+    name: "Elif S.",
+    role: "Anne",
+  },
+  {
+    quote:
+      "Kızımız arkadaş edinmekte çok zorlanıyordu. Sosyal beceri çalışmaları sayesinde artık okulda kendine güveniyor ve yeni arkadaşlıklar kurabiliyor.",
+    name: "Murat D.",
+    role: "Baba",
+  },
+  {
+    quote:
+      "Sadece çocuğumuzla değil, bizimle de ilgilendi. Aile danışmanlığı sürecinde bize yol gösterdi; evde nasıl tutarlı davranacağımızı öğrendik.",
+    name: "Seda A.",
+    role: "Anne",
+  },
+  {
+    quote:
+      "Ergenlik dönemindeki kızımla iletişimimiz kopma noktasındaydı. Seanslar sonrasında birbirimizi dinlemeyi yeniden öğrendik.",
+    name: "Hülya B.",
+    role: "Anne",
+  },
+  {
+    quote:
+      "Yapılan psikolojik değerlendirme sayesinde oğlumuzun ihtiyaçlarını ilk kez net olarak anladık. Okulla iş birliği içinde harika bir yol haritası çizdi.",
+    name: "Kemal Ö.",
+    role: "Baba",
+  },
+  {
+    quote:
+      "Kardeş kıskançlığı yüzünden evde zor günler geçiriyorduk. Önerdiği yöntemlerle çocuklarımız arasındaki ilişki gözle görülür şekilde düzeldi.",
+    name: "Derya G.",
+    role: "Anne",
+  },
 ];
 
 /**
@@ -464,29 +500,45 @@ export default function Home() {
                 </h2>
               </div>
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal key={t.name} delay={i * 100}>
-                  <article className="card card-hover h-full p-7 sm:p-8 flex flex-col">
-                    <span className="font-serif text-5xl leading-none text-accent/70 select-none" aria-hidden="true">
-                      &ldquo;
-                    </span>
-                    <blockquote className="font-serif italic text-lg text-ink leading-relaxed mt-2 mb-6 flex-1">
-                      {t.quote}
-                    </blockquote>
-                    <footer className="flex items-center justify-between pt-5 border-t border-line">
-                      <p className="text-sm">
-                        <span className="font-semibold text-ink">{t.name}</span>
-                        <span className="text-ink-soft/80"> · {t.role}</span>
-                      </p>
-                      <span className="text-gold text-sm tracking-[0.1em]" aria-label="5 üzerinden 5 yıldız">
-                        ★★★★★
-                      </span>
-                    </footer>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal>
+              <div className="marquee" aria-label="Danışan aileler tarafından bırakılan yorumlar">
+                <div className="marquee-track">
+                  {[false, true].map((isCopy) => (
+                    <div
+                      key={isCopy ? "kopya" : "asil"}
+                      className="marquee-group"
+                      aria-hidden={isCopy || undefined}
+                    >
+                      {TESTIMONIALS.map((t) => (
+                        <article
+                          key={t.name}
+                          className="card h-auto self-stretch w-[19rem] sm:w-[23rem] shrink-0 p-7 sm:p-8 flex flex-col"
+                        >
+                          <span
+                            className="font-serif text-5xl leading-none text-accent/70 select-none"
+                            aria-hidden="true"
+                          >
+                            &ldquo;
+                          </span>
+                          <blockquote className="font-serif italic text-lg text-ink leading-relaxed mt-2 mb-6 flex-1">
+                            {t.quote}
+                          </blockquote>
+                          <footer className="flex items-center justify-between pt-5 border-t border-line">
+                            <p className="text-sm">
+                              <span className="font-semibold text-ink">{t.name}</span>
+                              <span className="text-ink-soft/80"> · {t.role}</span>
+                            </p>
+                            <span className="text-gold text-sm tracking-[0.1em]" aria-label="5 üzerinden 5 yıldız">
+                              ★★★★★
+                            </span>
+                          </footer>
+                        </article>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 

@@ -382,6 +382,59 @@ h1, h2, h3, h4 {
 }
 
 /* ------------------------------------------------------------
+   Yorum şeridi (marquee): sürekli kayan, üzerine gelince duran
+   ------------------------------------------------------------ */
+.marquee {
+  overflow: hidden;
+  /* Kenarlarda yumuşak geçiş */
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 55s linear infinite;
+  will-change: transform;
+}
+
+/* Fare üzerindeyken veya klavye odağı içerideyken durdur */
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  /* Hareket azaltıldığında kopya sete gerek yok */
+  .marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------
    Scroll-reveal animasyonları
    ------------------------------------------------------------ */
 .reveal {
