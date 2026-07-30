@@ -6,6 +6,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   output: 'standalone',
+  // Üst dizindeki başıboş lockfile nedeniyle çalışma kökünün yanlış
+  // algılanmasını önler (standalone dosya izlemesi için kritik).
+  outputFileTracingRoot: __dirname,
   
   // SEO ve Performans Optimizasyonları
   compress: true,
