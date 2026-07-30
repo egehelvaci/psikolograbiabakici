@@ -13,7 +13,7 @@ const nextConfig = {
   
   // Image Optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 gün cache
@@ -71,6 +71,8 @@ const nextConfig = {
   },
   
   // Redirects for SEO
+  // Bölüm URL'leri rewrite yerine 301 ile ana sayfaya yönlendirilir;
+  // rewrite aynı içeriği birden çok URL'de sunarak duplicate content oluşturuyordu.
   async redirects() {
     return [
       {
@@ -83,23 +85,20 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-    ];
-  },
-  
-  // Rewrites for clean URLs
-  async rewrites() {
-    return [
       {
         source: '/hizmetler',
         destination: '/#hizmetler',
+        permanent: true,
       },
       {
         source: '/hakkimda',
         destination: '/#hakkimda',
+        permanent: true,
       },
       {
         source: '/iletisim',
         destination: '/#iletisim',
+        permanent: true,
       },
     ];
   },
