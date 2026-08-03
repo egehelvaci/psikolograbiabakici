@@ -1,12 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import Analytics from "@/components/Analytics";
+import ImageProtection from "@/components/ImageProtection";
+import ScrollTopButton from "@/components/ScrollTopButton";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
+import StickyCta from "@/components/StickyCta";
+import JsonLd from "@/components/JsonLd";
+import { graph, organizationSchema, personSchema, websiteSchema } from "@/lib/seo";
+import { GOOGLE_SITE_VERIFICATION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 const fraunces = Fraunces({
@@ -15,6 +23,7 @@ const fraunces = Fraunces({
   weight: "variable",
   style: ["normal", "italic"],
   axes: ["opsz"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -24,68 +33,17 @@ export const viewport: Viewport = {
   themeColor: "#2f5d3f",
 };
 
-const DESCRIPTION =
-  "İstanbul Başakşehir'de çocuk ve ergen psikoloğu Rabia Bakıcı. Oyun terapisi, aile danışmanlığı, kaygı terapisi ve psikolojik değerlendirme için randevu alın. 5+ yıl deneyim.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir",
+    default: "Başakşehir Çocuk ve Ergen Psikoloğu | Rabia Bakıcı",
     template: `%s | ${SITE_NAME}`,
   },
-  description: DESCRIPTION,
-  keywords: [
-    // Ana anahtar kelimeler
-    "psikolog rabia bakıcı", "çocuk psikoloğu istanbul", "ergen psikoloğu başakşehir",
-    "oyun terapisi istanbul", "çocuk psikoloğu başakşehir", "psikolog başakşehir",
-    // Hizmet odaklı kelimeler
-    "aile danışmanlığı istanbul", "çocuk kaygı tedavisi", "psikolojik değerlendirme çocuk",
-    "davranış problemleri çocuk", "sosyal beceri geliştirme", "eğitim danışmanlığı",
-    // Lokasyon bazlı
-    "istanbul psikolog", "başakşehir psikoloji", "çocuk terapisti istanbul",
-    // Uzun kuyruk kelimeler
-    "çocuklarda dikkat eksikliği tedavisi", "okul fobisi tedavisi", "çocuk özgüven geliştirme",
-    "ergen psikolojik destek", "aile terapisi istanbul", "çocuk gelişim uzmanı",
-  ],
-  authors: [{ name: "Rabia Bakıcı", url: SITE_URL }],
+  description:
+    "Başakşehir'de çocuk ve ergen psikolojisi, oyun terapisi, kaygı, davranış sorunları ve ebeveyn danışmanlığı hakkında bilgi alın.",
+  authors: [{ name: "Rabia Bakıcı", url: `${SITE_URL}/hakkimda` }],
   creator: "Rabia Bakıcı",
   publisher: "Rabia Bakıcı",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: SITE_URL,
-    title: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir",
-    description: DESCRIPTION,
-    siteName: SITE_NAME,
-    images: [
-      {
-        url: "/images/og-card.png",
-        width: 1200,
-        height: 630,
-        alt: "Psikolog Rabia Bakıcı - İstanbul Başakşehir Çocuk ve Ergen Psikoloğu, Oyun Terapisi Uzmanı",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikoloğu İstanbul Başakşehir",
-    description: DESCRIPTION,
-    images: ["/images/og-card.png"],
-  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -99,8 +57,13 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   category: "health",
-  classification: "Psychology Practice",
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
+
+/** Site geneli varlıklar; sayfa özel şemaları bu düğümlere @id ile bağlanır. */
+const SITE_GRAPH = graph(organizationSchema(), personSchema(), websiteSchema());
 
 export default function RootLayout({
   children,
@@ -114,21 +77,17 @@ export default function RootLayout({
         <noscript>
           <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
-        {children}
-        {/* Google tag (gtag.js) */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17092278848"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17092278848');
-          `}
-        </Script>
+        <JsonLd data={SITE_GRAPH} />
+        <a href="#icerik" className="skip-link">
+          İçeriğe geç
+        </a>
+        <ImageProtection />
+        <SiteHeader />
+        <main id="icerik">{children}</main>
+        <SiteFooter />
+        <ScrollTopButton />
+        <StickyCta />
+        <Analytics />
       </body>
     </html>
   );

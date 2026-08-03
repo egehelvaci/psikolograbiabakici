@@ -1,40 +1,69 @@
-# psikolograbiabakici
+# psikolograbiabakici.com
 
-Bu proje, Psikolog Rabia Bakıcı için hazırlanmış bir web sitesidir.
+Psikolog Rabia Bakıcı (İstanbul Başakşehir, çocuk ve ergen psikolojisi) için
+Next.js tabanlı tanıtım ve randevu sitesi.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Teknoloji
 
-## Getting Started
+- Next.js 15 (App Router, statik üretim)
+- React 19
+- Tailwind CSS 4
+- TypeScript
 
-First, run the development server:
+## Kurulum
 
 ```bash
+npm install
+cp .env.example .env.local   # değerleri doldurun (isteğe bağlı)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site [http://localhost:3000](http://localhost:3000) adresinde çalışır.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Komutlar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Komut | Açıklama |
+| --- | --- |
+| `npm run dev` | Geliştirme sunucusu (Turbopack) |
+| `npm run build` | Üretim derlemesi ve tip kontrolü |
+| `npm run start` | Derlenmiş çıktıyı sunar |
+| `npm run lint` | ESLint |
+| `npm run seo:audit` | Üretilen HTML üzerinde SEO denetimi (`build` sonrası çalıştırılır) |
+| `npm run smoke` | Çalışan sunucuda rota ve yönlendirme kontrolü |
 
-## Learn More
+## Proje yapısı
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/          Sayfalar ve rotalar (App Router), sitemap.ts, robots.ts
+  components/   Paylaşılan bileşenler (header, footer, form, CTA, SSS, harita)
+  content/      İçerik modeli: hizmetler, sorunlar, yazılar, SSS, yasal metinler
+  lib/          site.ts (işletme bilgileri), seo.ts (metadata + JSON-LD), analytics.ts
+scripts/
+  seo-audit.mjs SEO kabul kriterleri denetimi
+docs/
+  seo-operasyon.md  Kurulum, ölçüm ve içerik ekleme kılavuzu
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sayfalar içerik modelinden üretilir: `src/content/` altına yeni bir hizmet,
+sorun ya da yazı eklendiğinde rota, site haritası kaydı ve yapısal veri
+kendiliğinden oluşur.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## İşletme bilgilerini değiştirme
 
-## Deploy on Vercel
+Telefon, e-posta, ilçe, çalışma saatleri, sosyal profiller ve analitik
+kimlikleri tek bir dosyada tutulur: `src/lib/site.ts`. Sayfalar, footer,
+iletişim formu ve JSON-LD bu kaynaktan beslenir.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Ortam değişkenleri
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Değişken | Açıklama |
+| --- | --- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 ölçüm kimliği (`G-…`). Boşsa GA4 yüklenmez. |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Search Console HTML etiketi doğrulaması (isteğe bağlı). |
+
+## Ayrıntılı kılavuz
+
+Search Console / GA4 / Google Business Profile kurulumu, GA4 olay sözlüğü,
+içerik ekleme akışı ve yayın öncesi kontrol listesi için
+[`docs/seo-operasyon.md`](docs/seo-operasyon.md) dosyasına bakın.

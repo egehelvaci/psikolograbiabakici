@@ -1,21 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ProtectedImage from "@/components/ProtectedImage";
-import { WHATSAPP_URL } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
+import { MAIN_NAV } from "@/content/navigation";
+import { APPOINTMENT_MESSAGE, AUTHOR, whatsappLink } from "@/lib/site";
 
-const NAV_LINKS = [
-  { href: "#hizmetler", label: "Hizmetler" },
-  { href: "#hakkimda", label: "Hakkımda" },
-  { href: "#yorumlar", label: "Yorumlar" },
-  { href: "#iletisim", label: "İletişim" },
-];
-
-/** Yapışkan üst menü: mobil menü durumu ve kaydırma gölgesi. */
+/**
+ * Yapışkan üst menü.
+ *
+ * Alt menüler standart bağlantılardan oluşur ve masaüstünde hem klavye odağı
+ * hem fare üzerinde açılır; böylece tarayıcı JavaScript çalıştırmasa da
+ * bağlantılar taranabilir kalır (PRD §9.8).
+ */
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -24,47 +28,101 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    setOpenGroup(null);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <div className="container mx-auto px-5 lg:px-8 flex items-center justify-between h-20">
-        <Link href="/" className="flex items-center gap-3" aria-label="Psikolog Rabia Bakıcı - Ana Sayfa">
+      <div className="container mx-auto px-5 lg:px-8 flex items-center justify-between h-20 gap-4">
+        <Link href="/" className="flex items-center gap-3 shrink-0" aria-label={`${AUTHOR.name} — Ana sayfa`}>
           <span className="relative w-12 h-12 rounded-full overflow-hidden border border-line bg-surface shrink-0">
             <ProtectedImage
               src="/images/logo.jpg"
-              alt="Psikolog Rabia Bakıcı logosu"
+              alt=""
               fill
               className="object-cover scale-[1.4]"
               sizes="48px"
             />
           </span>
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="font-serif font-semibold text-ink text-base tracking-tight">Rabia Bakıcı</span>
-            <span className="text-[0.7rem] uppercase tracking-[0.18em] text-ink-soft/80">Klinik Psikolog</span>
+            <span className="font-serif font-semibold text-ink text-base tracking-tight">
+              {AUTHOR.name}
+            </span>
+            <span className="text-[0.7rem] uppercase tracking-[0.18em] text-ink-soft/80">
+              Çocuk ve Ergen Psikoloğu
+            </span>
           </span>
         </Link>
 
         {/* Masaüstü menü */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Ana Menü">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link">
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Ana menü">
+          {MAIN_NAV.map((item) =>
+            item.children ? (
+              <div
+                key={item.href}
+                className="nav-group"
+                onMouseEnter={() => setOpenGroup(item.href)}
+                onMouseLeave={() => setOpenGroup(null)}
+              >
+                <Link
+                  href={item.href}
+                  className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
+                  aria-expanded={openGroup === item.href}
+                  onFocus={() => setOpenGroup(item.href)}
+                >
+                  {item.label}
+                  <span className="nav-caret" aria-hidden="true">
+                    ▾
+                  </span>
+                </Link>
+                <div className={`nav-panel ${openGroup === item.href ? "is-open" : ""}`}>
+                  <ul>
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} onBlur={() => setOpenGroup(null)}>
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                    <li className="nav-panel-all">
+                      <Link href={item.href}>Tümünü gör →</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <a
-            href={`${WHATSAPP_URL}?text=Merhaba%2C%20randevu%20almak%20istiyorum.`}
+            href={whatsappLink(APPOINTMENT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-sm shrink-0"
+            onClick={() =>
+              trackEvent("generate_lead", { method: "whatsapp", cta_location: "header" })
+            }
           >
-            Randevu Al
+            Randevu Talep Et
           </a>
         </nav>
 
         {/* Mobil menü butonu */}
         <button
-          className="md:hidden flex items-center justify-center w-11 h-11 rounded-full border border-line-strong text-ink"
+          className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full border border-line-strong text-ink"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
+          aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
         >
@@ -85,32 +143,35 @@ export default function SiteHeader() {
 
       {/* Mobil menü */}
       {menuOpen && (
-        <nav
-          className="md:hidden px-5 pb-6 pt-2 border-t border-line bg-background/95"
-          id="mobile-menu"
-          aria-label="Mobil Menü"
-        >
-          <ul className="flex flex-col">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href} className="border-b border-line last:border-0">
-                <Link
-                  href={link.href}
-                  className="block py-3.5 font-medium text-ink"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
+        <nav className="lg:hidden mobile-menu" id="mobile-menu" aria-label="Mobil menü">
+          <ul>
+            {MAIN_NAV.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="mobile-menu-link">
+                  {item.label}
                 </Link>
+                {item.children ? (
+                  <ul className="mobile-submenu">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href}>{child.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </li>
             ))}
           </ul>
           <a
-            href={`${WHATSAPP_URL}?text=Merhaba%2C%20randevu%20almak%20istiyorum.`}
+            href={whatsappLink(APPOINTMENT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary w-full mt-4"
-            onClick={() => setMenuOpen(false)}
+            className="btn btn-primary w-full mt-5"
+            onClick={() =>
+              trackEvent("generate_lead", { method: "whatsapp", cta_location: "mobile_menu" })
+            }
           >
-            Randevu Al
+            Randevu Talep Et
           </a>
         </nav>
       )}
