@@ -161,8 +161,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "ergen-psikologu",
-    image: "/images/creative-play.jpg",
-    imageAlt: "Çocuğun kitapla sakin bir etkinlik yaptığı an",
+    image: "/images/family-talk.jpg",
+    imageAlt: "Ergenlerin birlikte zaman geçirdiği bir an",
     navLabel: "Ergen Psikolojisi",
     h1: "Başakşehir Ergen Psikoloğu",
     metaTitle: "Başakşehir Ergen Psikoloğu | Rabia Bakıcı",
@@ -579,8 +579,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "cocuklarda-kaygi-terapisi",
-    image: "/images/child-development.jpg",
-    imageAlt: "Çocuğun renkli bir etkinlikle kendini ifade ettiği an",
+    image: "/images/calm-child.jpg",
+    imageAlt: "Çocuğun sakin bir ortamda odaklandığı an",
     navLabel: "Kaygı Desteği",
     h1: "Çocuklarda Kaygı Terapisi",
     metaTitle: "Çocuklarda Kaygı Terapisi | Başakşehir Psikolog",
@@ -711,8 +711,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "davranis-problemleri",
-    image: "/images/play-therapy.jpg",
-    imageAlt: "Oyun materyalleriyle odaklanan çocuk",
+    image: "/images/creative-play.jpg",
+    imageAlt: "Çocuğun neşeli ve özgür bir etkinlik yaptığı an",
     navLabel: "Davranış Problemleri",
     h1: "Çocuklarda Davranış Problemleri",
     metaTitle: "Çocuklarda Davranış Problemleri | Başakşehir",
@@ -844,8 +844,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "aile-ve-ebeveyn-danismanligi",
-    image: "/images/family-support.jpg",
-    imageAlt: "Çocuğun güvenli bir ortamda oyun oynadığı an",
+    image: "/images/family.jpg",
+    imageAlt: "Ailenin birlikte yürüdüğü sıcak bir an",
     navLabel: "Aile ve Ebeveyn Danışmanlığı",
     h1: "Aile ve Ebeveyn Danışmanlığı",
     metaTitle: "Aile ve Ebeveyn Danışmanlığı | Başakşehir",
@@ -977,8 +977,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "sosyal-beceri-destegi",
-    image: "/images/creative-play.jpg",
-    imageAlt: "Çocuğun açık havada neşeli bir etkinlik yaptığı an",
+    image: "/images/child-classroom.jpg",
+    imageAlt: "Çocukların sınıfta birlikte öğrendiği bir an",
     navLabel: "Sosyal Beceri Desteği",
     h1: "Çocuklarda Sosyal Beceri Desteği",
     metaTitle: "Çocuklarda Sosyal Beceri Desteği | Başakşehir",
