@@ -109,7 +109,7 @@ export default async function ServicePageRoute({ params }: Params) {
         title={service.h1}
         answer={service.answer}
       >
-        <figure className="service-detail-image">
+        <figure className={`service-detail-image service-${service.slug}`}>
           <ProtectedImage src={service.image} alt={service.imageAlt} fill priority sizes="(max-width: 767px) 100vw, 720px" className="object-cover" />
         </figure>
         <div className="mt-8">

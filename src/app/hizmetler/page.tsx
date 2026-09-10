@@ -72,7 +72,7 @@ export default function ServicesHubPage() {
             <li key={service.slug} className="h-full">
               <TrackedInternalLink
                 href={`/hizmetler/${service.slug}`}
-                className="card card-hover service-card h-full p-7 flex flex-col"
+                className={`card card-hover service-card service-${service.slug} h-full p-7 flex flex-col`}
                 event="select_service"
                 eventParams={{
                   page_type: "service_hub",
