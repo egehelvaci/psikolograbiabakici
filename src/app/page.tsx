@@ -78,86 +78,36 @@ export default function Home() {
         )}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden" aria-labelledby="hero-baslik">
-        <div className="glow w-[32rem] h-[32rem] -top-40 -left-40 bg-primary-tint" aria-hidden="true" />
-        <div className="glow w-[26rem] h-[26rem] top-1/3 -right-32 bg-accent-tint" aria-hidden="true" />
-
-        <div className="container relative mx-auto px-5 lg:px-8 pt-14 pb-16 sm:pt-20 sm:pb-24 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <span className="eyebrow mb-5">
-                {AUTHOR.title} {AUTHOR.name} · {AUTHOR.credentials}
-              </span>
-              <h1 id="hero-baslik" className="display-1">
-                Başakşehir <em className="not-italic text-primary">Çocuk ve Ergen</em> Psikoloğu
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="lead mt-7">
-                Oyun terapisi ve çocuk odaklı yaklaşımlarla; kaygı, davranış
-                problemleri, okul uyumu ve akran ilişkileri gibi alanlarda çocuklara
-                ve ebeveynlere destek sunuyorum. Sürecin nasıl ilerleyeceği, hedefler
-                ve sınırlar baştan açıkça konuşulur.
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <div className="flex flex-col sm:flex-row gap-3 mt-9">
-                <TrackedLink
-                  href={whatsappLink(APPOINTMENT_MESSAGE)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  event="generate_lead"
-                  eventParams={{ method: "whatsapp", cta_location: "hero" }}
-                >
-                  {CTA_PRIMARY_LABEL}
-                </TrackedLink>
-                <Link href="/hizmetler" className="btn btn-secondary">
-                  Hizmetleri İncele
-                </Link>
-              </div>
-              <p className="text-sm text-ink-soft/85 mt-5">
-                {ADDRESS.display} · {OPENING_HOURS_DISPLAY} · {RESPONSE_TIME_DISPLAY}
-              </p>
-            </Reveal>
-            <Reveal delay={320}>
-              <dl className="grid grid-cols-3 gap-6 mt-11 pt-8 border-t border-line max-w-lg">
-                <div className="flex flex-col">
-                  <dt className="order-last text-sm text-ink-soft/90 mt-1">Yıl deneyim</dt>
-                  <dd className="font-serif text-3xl font-semibold text-ink">5+</dd>
-                </div>
-                <div className="flex flex-col">
-                  <dt className="order-last text-sm text-ink-soft/90 mt-1">Yaş aralığı</dt>
-                  <dd className="font-serif text-3xl font-semibold text-ink">3–18</dd>
-                </div>
-                <div className="flex flex-col">
-                  <dt className="order-last text-sm text-ink-soft/90 mt-1">Klinik psikoloji</dt>
-                  <dd className="font-serif text-3xl font-semibold text-ink">Y.L.</dd>
-                </div>
-              </dl>
-            </Reveal>
+      <section className="home-hero" aria-labelledby="hero-baslik">
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <span className="eyebrow">İstanbul, Başakşehir · Psikolojik danışmanlık</span>
+            <h1 id="hero-baslik" className="hero-title"><span>Başakşehir</span>Çocuk ve Ergen<br /><em>Psikoloğu</em></h1>
+            <p className="hero-motto">Birlikte, kendi ritminde.</p>
+            <p className="hero-description">Oyun terapisi ve çocuk odaklı yaklaşımlarla; kaygı, davranış problemleri, okul uyumu ve akran ilişkileri gibi alanlarda çocuklara ve ebeveynlere destek sunuyorum. Sürecin nasıl ilerleyeceği, hedefler ve sınırlar baştan açıkça konuşulur.</p>
+            <div className="hero-actions">
+              <TrackedLink href={whatsappLink(APPOINTMENT_MESSAGE)} target="_blank" rel="noopener noreferrer" className="btn btn-primary" event="generate_lead" eventParams={{ method: "whatsapp", cta_location: "hero" }}>{CTA_PRIMARY_LABEL}<span aria-hidden="true">↗</span></TrackedLink>
+              <Link href="/hizmetler" className="text-link">Hizmetleri incele <span aria-hidden="true">→</span></Link>
+            </div>
+            <p className="hero-response">{RESPONSE_TIME_DISPLAY}</p>
           </div>
-
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <Reveal delay={200} className="w-full max-w-sm">
-              <figure className="frame-arch frame-offset relative w-full aspect-[4/5] bg-surface shadow-[var(--shadow-lg)]">
-                <ProtectedImage
-                  src="/images/family.jpg"
-                  alt="Gün batımında el ele yürüyen anne, baba ve çocuk"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 384px"
-                />
-              </figure>
-            </Reveal>
+          <div className="hero-visual">
+            <figure className="hero-portrait">
+              <ProtectedImage src={AUTHOR.image} alt="Psikolog Rabia Bakıcı, oyun terapisi materyalleriyle çalışma odasında" fill priority sizes="(max-width: 767px) 90vw, (max-width: 1200px) 45vw, 560px" className="object-cover" />
+            </figure>
+            <div className="portrait-caption"><div><span className="caption-label">Tanışalım</span><p>Psikolog Rabia Bakıcı</p></div><Link href="/hakkimda" aria-label="Rabia Bakıcı hakkında" className="circle-link">↗</Link></div>
+            <p className="portrait-note">Çocuğun kendi ritmi. Ebeveyn iş birliği.</p>
           </div>
+        </div>
+        <div className="container hero-bottom">
+          <p>{ADDRESS.display}<br /><span>{OPENING_HOURS_DISPLAY}</span></p>
+          <dl className="hero-facts"><div><dd>5+</dd><dt>Yıl deneyim</dt></div><div><dd>3–18</dd><dt>Yaş aralığı</dt></div><div><dd>Y.L.</dd><dt>Klinik psikoloji</dt></div></dl>
+          <a href="#hizmetler" className="explore-link">Birlikte keşfedelim <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
       {/* Hizmetler */}
-      <section id="hizmetler" className="section section-alt" aria-labelledby="hizmetler-baslik">
+      <section id="hizmetler" className="section home-services" aria-labelledby="hizmetler-baslik">
         <div className="container mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="max-w-2xl mb-12">
@@ -173,7 +123,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <ul className="service-directory">
             {featuredServices.map((service, i) => (
               <li key={service.slug} className="h-full">
                 <Reveal delay={(i % 3) * 90} className="h-full">
@@ -211,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Süreç */}
-      <section className="section" aria-labelledby="surec-baslik">
+      <section className="section home-process" aria-labelledby="surec-baslik">
         <div className="container mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="max-w-2xl mb-12">
@@ -221,7 +171,7 @@ export default function Home() {
               </h2>
             </div>
           </Reveal>
-          <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <ol className="process-timeline">
             {PROCESS.map((step, index) => (
               <li key={step.title}>
                 <Reveal delay={index * 80}>
@@ -242,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* Sık görülen durumlar */}
-      <section className="section section-alt" aria-labelledby="durumlar-baslik">
+      <section className="section home-concerns" aria-labelledby="durumlar-baslik">
         <div className="container mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="max-w-2xl mb-12">
@@ -256,7 +206,7 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
-          <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="concern-directory">
             {CONCERNS.map((concern, index) => (
               <li key={concern.slug} className="h-full">
                 <Reveal delay={(index % 3) * 80} className="h-full">
@@ -273,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Hakkımda özeti */}
-      <section id="hakkimda" className="section" aria-labelledby="hakkimda-baslik">
+      <section id="hakkimda" className="section home-about" aria-labelledby="hakkimda-baslik">
         <div className="container mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5 flex justify-center">
             <Reveal className="w-full max-w-xs sm:max-w-sm">
@@ -331,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Yorumlar */}
-      <section id="yorumlar" className="section section-alt" aria-labelledby="yorumlar-baslik">
+      <section id="yorumlar" className="section home-testimonials" aria-labelledby="yorumlar-baslik">
         <div className="container mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="max-w-3xl mb-10">
@@ -343,40 +293,14 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal>
-            <div className="marquee" aria-label="Ailelerin izniyle paylaşılan geri bildirimler">
-              <div className="marquee-track">
-                {[false, true].map((isCopy) => (
-                  <div
-                    key={isCopy ? "kopya" : "asil"}
-                    className="marquee-group"
-                    aria-hidden={isCopy || undefined}
-                  >
-                    {TESTIMONIALS.map((t) => (
-                      <article
-                        key={t.name}
-                        className="card h-auto self-stretch w-[19rem] sm:w-[23rem] shrink-0 p-7 sm:p-8 flex flex-col"
-                      >
-                        <span
-                          className="font-serif text-5xl leading-none text-accent/70 select-none"
-                          aria-hidden="true"
-                        >
-                          &ldquo;
-                        </span>
-                        <blockquote className="font-serif italic text-lg text-ink leading-relaxed mt-2 mb-6 flex-1">
-                          {t.quote}
-                        </blockquote>
-                        <footer className="pt-5 border-t border-line">
-                          <p className="text-sm">
-                            <span className="font-semibold text-ink">{t.name}</span>
-                            <span className="text-ink-soft/80"> · {t.role}</span>
-                          </p>
-                        </footer>
-                      </article>
-                    ))}
-                  </div>
-                ))}
-              </div>
+            <div className="testimonial-scroll" tabIndex={0} role="region" aria-label="Aile geri bildirimleri. Diğer yorumlar için yatay kaydırın.">
+              {TESTIMONIALS.map((t, index) => <article className="testimonial" key={t.name}>
+                <span className="testimonial-index">{String(index + 1).padStart(2, "0")} / Aile geri bildirimi</span>
+                <blockquote>{t.quote}</blockquote>
+                <footer>{t.name}<span>{t.role}</span></footer>
+              </article>)}
             </div>
+            <p className="scroll-hint">Diğer ailelerin ifadeleri için kaydırın <span aria-hidden="true">⟶</span></p>
           </Reveal>
         </div>
       </section>
@@ -408,7 +332,7 @@ export default function Home() {
       </section>
 
       {/* İletişim */}
-      <section id="iletisim" className="section section-alt" aria-labelledby="iletisim-baslik">
+      <section id="iletisim" className="section home-contact" aria-labelledby="iletisim-baslik">
         <div className="container mx-auto px-5 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-6">

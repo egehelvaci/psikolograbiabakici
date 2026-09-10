@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
+import "./editorial.css";
 import Analytics from "@/components/Analytics";
 import ImageProtection from "@/components/ImageProtection";
 import ScrollTopButton from "@/components/ScrollTopButton";
@@ -30,7 +31,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#2f5d3f",
+  themeColor: "#723e49",
 };
 
 export const metadata: Metadata = {
@@ -75,7 +76,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
         {/* JavaScript kapalıyken scroll-reveal içeriği gizlememeli */}
         <noscript>
-          <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
+          <style>{`.reveal{opacity:1 !important;transform:none !important}.nav-group:focus-within .nav-panel{opacity:1;visibility:visible;transform:none}`}</style>
         </noscript>
         <JsonLd data={SITE_GRAPH} />
         <a href="#icerik" className="skip-link">
@@ -92,3 +93,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -26,6 +26,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="container mx-auto px-5 lg:px-8 py-14">
+        <div className="footer-signoff"><span>Her çocuk, kendi ritminde.</span><Link href="/iletisim" className="text-link">Birlikte ilk adım <span aria-hidden="true">↗</span></Link></div>
         <div className="footer-grid">
           <div>
             <Link href="/" className="flex items-center gap-3" aria-label={`${SITE_NAME} — Ana sayfa`}>

@@ -30,6 +30,7 @@ const TOPICS = [
 export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [preparedHref, setPreparedHref] = useState(whatsappLink());
   const startedRef = useRef(false);
   const summaryRef = useRef<HTMLDivElement>(null);
 
@@ -82,17 +83,19 @@ export default function ContactForm() {
       service_name: topic,
     });
 
+    const href = whatsappLink(lines.join("\n"));
+    setPreparedHref(href);
     setSubmitted(true);
-    window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
+    window.open(href, "_blank", "noopener,noreferrer");
   }
 
   if (submitted) {
     return (
       <div className="card p-7 sm:p-9" role="status" aria-live="polite">
-        <h3 className="title-3 mb-4">WhatsApp penceresi açıldı</h3>
+        <h2 className="title-3 mb-4">Mesajınız hazır</h2>
         <p className="mb-4">
-          Hazırladığınız mesajı WhatsApp üzerinde görüyorsunuz. Göndermeden önce
-          içeriği düzenleyebilirsiniz. {RESPONSE_TIME_DISPLAY}
+          Hazırladığınız mesajı WhatsApp üzerinden iletebilirsiniz. Göndermeden
+          önce içeriği düzenleyebilirsiniz. {RESPONSE_TIME_DISPLAY}
         </p>
         <p className="mb-6 text-sm text-ink-soft/85">
           Pencere açılmadıysa tarayıcınız açılır pencereleri engellemiş olabilir;
@@ -100,7 +103,7 @@ export default function ContactForm() {
         </p>
         <div className="flex flex-wrap gap-3">
           <a
-            href={whatsappLink()}
+            href={preparedHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -119,7 +122,7 @@ export default function ContactForm() {
 
   return (
     <form className="card p-7 sm:p-9" onSubmit={handleSubmit} noValidate>
-      <h3 className="title-3 mb-2">Randevu talep formu</h3>
+      <h2 className="title-3 mb-2">Randevu talep formu</h2>
       <p className="text-sm text-ink-soft/90 mb-6">
         Formu doldurduğunuzda bilgileriniz bir WhatsApp mesajına dönüştürülür.
         Mesajı göndermeden önce görüp düzenleyebilirsiniz.

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProtectedImage from "@/components/ProtectedImage";
 import { trackEvent } from "@/lib/analytics";
 import { MAIN_NAV } from "@/content/navigation";
@@ -20,6 +20,21 @@ export default function SiteHeader() {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        const activeGroup = document.activeElement?.closest(".nav-group");
+        if (activeGroup) activeGroup.querySelector<HTMLAnchorElement>("a")?.focus();
+        else if (menuOpen) toggleRef.current?.focus();
+        setMenuOpen(false);
+        setOpenGroup(null);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,7 +52,8 @@ export default function SiteHeader() {
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setMenuOpen(false); }}>
       <div className="container mx-auto px-5 lg:px-8 flex items-center justify-between h-20 gap-4">
         <Link href="/" className="flex items-center gap-3 shrink-0" aria-label={`${AUTHOR.name} — Ana sayfa`}>
           <span className="relative w-12 h-12 rounded-full overflow-hidden border border-line bg-surface shrink-0">
@@ -49,7 +65,7 @@ export default function SiteHeader() {
               sizes="48px"
             />
           </span>
-          <span className="hidden sm:flex flex-col leading-tight">
+          <span className="brand-name flex flex-col leading-tight">
             <span className="font-serif font-semibold text-ink text-base tracking-tight">
               {AUTHOR.name}
             </span>
@@ -66,13 +82,14 @@ export default function SiteHeader() {
               <div
                 key={item.href}
                 className="nav-group"
+                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}
                 onMouseEnter={() => setOpenGroup(item.href)}
                 onMouseLeave={() => setOpenGroup(null)}
               >
                 <Link
                   href={item.href}
                   className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
-                  aria-expanded={openGroup === item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                   onFocus={() => setOpenGroup(item.href)}
                 >
                   {item.label}
@@ -84,7 +101,7 @@ export default function SiteHeader() {
                   <ul>
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} onBlur={() => setOpenGroup(null)}>
+                        <Link href={child.href} onClick={() => setOpenGroup(null)}>
                           {child.label}
                         </Link>
                       </li>
@@ -120,6 +137,7 @@ export default function SiteHeader() {
 
         {/* Mobil menü butonu */}
         <button
+          ref={toggleRef}
           className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full border border-line-strong text-ink"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
@@ -144,6 +162,7 @@ export default function SiteHeader() {
       {/* Mobil menü */}
       {menuOpen && (
         <nav className="lg:hidden mobile-menu" id="mobile-menu" aria-label="Mobil menü">
+          <p className="mobile-menu-eyebrow">Keşfedin</p>
           <ul>
             {MAIN_NAV.map((item) => (
               <li key={item.href}>

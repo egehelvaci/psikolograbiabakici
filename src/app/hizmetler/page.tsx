@@ -66,7 +66,7 @@ export default function ServicesHubPage() {
       />
 
       <section className="container mx-auto px-5 lg:px-8 pb-[var(--section-y)]">
-        <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="service-directory">
           {SERVICES.map((service, index) => (
             <li key={service.slug} className="h-full">
               <TrackedInternalLink

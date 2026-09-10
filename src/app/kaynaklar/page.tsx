@@ -61,8 +61,9 @@ export default function ResourcesHubPage() {
       />
 
       <section className="container mx-auto px-5 lg:px-8 pb-[var(--section-y)]">
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="resource-index">
           <Link href="/kaynaklar/makaleler" className="card card-hover p-8 flex flex-col">
+            <span className="resource-number" aria-hidden="true">01</span>
             <h2 className="title-3 mb-3">Yazılar</h2>
             <p className="flex-1">
               Oyun terapisi, terapi süreci, ne zaman destek alınmalı ve uzmanlar
@@ -76,6 +77,7 @@ export default function ResourcesHubPage() {
             href="/kaynaklar/sikca-sorulan-sorular"
             className="card card-hover p-8 flex flex-col"
           >
+            <span className="resource-number" aria-hidden="true">02</span>
             <h2 className="title-3 mb-3">Sıkça Sorulan Sorular</h2>
             <p className="flex-1">
               Randevu süreci, hizmet kapsamı, gizlilik, ücretlendirme çerçevesi ve
