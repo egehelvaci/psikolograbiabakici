@@ -28,7 +28,7 @@ export const ADDRESS = {
   country: "TR",
   countryName: "Türkiye",
   /** Görünür metinlerde ve yapısal veride aynı biçimde kullanılır. */
-  display: "Başakşehir, İstanbul",
+  display: "Başakşehir · Eyüpsultan, İstanbul",
   /** Yaklaşık ilçe merkezi — harita çerçevesi için, kesin konum değildir. */
   geo: { latitude: "41.0860", longitude: "28.8026" },
 } as const;
@@ -42,10 +42,11 @@ export const MAPS_EMBED_URL =
 
 /** Çalışma saatleri: görünür metin ve OpeningHoursSpecification tek kaynaktan. */
 export const OPENING_HOURS = [
-  { days: ["Monday", "Tuesday"], label: "Pazartesi – Salı", opens: "12:00", closes: "19:00" },
+  { days: ["Monday", "Tuesday"], label: "Başakşehir · Pazartesi – Salı", opens: "12:00", closes: "19:00" },
+  { days: ["Wednesday", "Thursday", "Friday"], label: "Eyüpsultan · Çarşamba – Cuma", opens: "12:00", closes: "20:00" },
 ] as const;
 
-export const OPENING_HOURS_DISPLAY = "Pazartesi – Salı, 12:00 – 19:00";
+export const OPENING_HOURS_DISPLAY = "Başakşehir: Pazartesi – Salı, 12:00 – 19:00 · Eyüpsultan: Çarşamba – Cuma, 12:00 – 20:00";
 
 /** İletişime dönüş süresi — abartısız ve tutulabilir bir taahhüt. */
 export const RESPONSE_TIME_DISPLAY = "Mesajlar genellikle aynı gün, en geç 1 iş günü içinde yanıtlanır.";

@@ -229,8 +229,8 @@ export default function Home() {
             <Reveal className="w-full max-w-xs sm:max-w-sm">
               <figure className="frame-arch frame-offset relative w-full aspect-[4/5] bg-surface shadow-[var(--shadow-lg)]">
                 <ProtectedImage
-                  src={AUTHOR.image}
-                  alt={`${AUTHOR.title} ${AUTHOR.name}, oyun terapisi materyalleriyle çalışma odasında`}
+                  src="/images/play-therapy.jpg"
+                  alt="Oyun terapisi materyalleriyle yaratıcı bir çocuk etkinliği"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 320px, 384px"
