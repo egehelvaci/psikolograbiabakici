@@ -3,6 +3,7 @@ import CtaBand from "@/components/CtaBand";
 import EmergencyNotice from "@/components/EmergencyNotice";
 import JsonLd from "@/components/JsonLd";
 import PageIntro from "@/components/PageIntro";
+import ProtectedImage from "@/components/ProtectedImage";
 import RelatedLinks from "@/components/RelatedLinks";
 import TrackedInternalLink from "@/components/TrackedInternalLink";
 import { CONCERNS } from "@/content/concerns";
@@ -79,7 +80,10 @@ export default function ServicesHubPage() {
                   cta_location: "service_grid",
                 }}
               >
-                <span className="flex items-baseline justify-between mb-5">
+                <span className="service-card-image">
+                  <ProtectedImage src={service.image} alt={service.imageAlt} fill sizes="(max-width: 767px) 100vw, 180px" className="object-cover" />
+                </span>
+                <span className="service-card-meta flex items-baseline justify-between mb-5">
                   <span className="service-num">{String(index + 1).padStart(2, "0")}</span>
                   <span className="rule w-10" aria-hidden="true" />
                 </span>

@@ -8,6 +8,7 @@ import EmergencyNotice from "@/components/EmergencyNotice";
 import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import PageIntro from "@/components/PageIntro";
+import ProtectedImage from "@/components/ProtectedImage";
 import RelatedLinks from "@/components/RelatedLinks";
 import TrackView from "@/components/TrackView";
 import { ARTICLES } from "@/content/articles";
@@ -108,6 +109,9 @@ export default async function ServicePageRoute({ params }: Params) {
         title={service.h1}
         answer={service.answer}
       >
+        <figure className="service-detail-image">
+          <ProtectedImage src={service.image} alt={service.imageAlt} fill priority sizes="(max-width: 767px) 100vw, 720px" className="object-cover" />
+        </figure>
         <div className="mt-8">
           <AuthorBox reviewed={service.reviewed} />
         </div>

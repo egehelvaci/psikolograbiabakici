@@ -8,6 +8,8 @@ import type { ServicePage } from "./types";
 export const SERVICES: ServicePage[] = [
   {
     slug: "cocuk-psikologu",
+    image: "/images/child-development.jpg",
+    imageAlt: "Çocuğun yaratıcı etkinlikle ilgilendiği bir an",
     navLabel: "Çocuk Psikolojisi",
     h1: "Başakşehir Çocuk Psikoloğu",
     metaTitle: "Başakşehir Çocuk Psikoloğu | Rabia Bakıcı",
@@ -159,6 +161,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "ergen-psikologu",
+    image: "/images/creative-play.jpg",
+    imageAlt: "Çocuğun kitapla sakin bir etkinlik yaptığı an",
     navLabel: "Ergen Psikolojisi",
     h1: "Başakşehir Ergen Psikoloğu",
     metaTitle: "Başakşehir Ergen Psikoloğu | Rabia Bakıcı",
@@ -293,6 +297,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "oyun-terapisi",
+    image: "/images/play-therapy.jpg",
+    imageAlt: "Oyun terapisi materyalleriyle çalışan çocuk",
     navLabel: "Oyun Terapisi",
     h1: "Başakşehir'de Oyun Terapisi",
     metaTitle: "Oyun Terapisi Başakşehir | Psikolog Rabia Bakıcı",
@@ -432,6 +438,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "psikolojik-degerlendirme",
+    image: "/images/family-support.jpg",
+    imageAlt: "Çocuğun oyun odasında yaratıcı materyallerle ilgilendiği an",
     navLabel: "Psikolojik Değerlendirme",
     h1: "Çocuklarda Psikolojik Değerlendirme",
     metaTitle: "Çocuklarda Psikolojik Değerlendirme | Başakşehir",
@@ -571,6 +579,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "cocuklarda-kaygi-terapisi",
+    image: "/images/child-development.jpg",
+    imageAlt: "Çocuğun renkli bir etkinlikle kendini ifade ettiği an",
     navLabel: "Kaygı Desteği",
     h1: "Çocuklarda Kaygı Terapisi",
     metaTitle: "Çocuklarda Kaygı Terapisi | Başakşehir Psikolog",
@@ -701,6 +711,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "davranis-problemleri",
+    image: "/images/play-therapy.jpg",
+    imageAlt: "Oyun materyalleriyle odaklanan çocuk",
     navLabel: "Davranış Problemleri",
     h1: "Çocuklarda Davranış Problemleri",
     metaTitle: "Çocuklarda Davranış Problemleri | Başakşehir",
@@ -832,6 +844,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "aile-ve-ebeveyn-danismanligi",
+    image: "/images/family-support.jpg",
+    imageAlt: "Çocuğun güvenli bir ortamda oyun oynadığı an",
     navLabel: "Aile ve Ebeveyn Danışmanlığı",
     h1: "Aile ve Ebeveyn Danışmanlığı",
     metaTitle: "Aile ve Ebeveyn Danışmanlığı | Başakşehir",
@@ -963,6 +977,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "sosyal-beceri-destegi",
+    image: "/images/creative-play.jpg",
+    imageAlt: "Çocuğun açık havada neşeli bir etkinlik yaptığı an",
     navLabel: "Sosyal Beceri Desteği",
     h1: "Çocuklarda Sosyal Beceri Desteği",
     metaTitle: "Çocuklarda Sosyal Beceri Desteği | Başakşehir",

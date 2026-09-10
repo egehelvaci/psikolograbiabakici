@@ -61,12 +61,15 @@ h1, h2, h3 { font-weight: 400; }
 .home-services .lead { font-size: .95rem; }
 .home-services > .container > p { grid-column: 2; }
 .service-directory { display: grid; gap: 0; border-top: 1px solid var(--line-strong); }
-.service-directory .service-card { display: grid; grid-template-columns: 2rem 1fr auto; gap: .6rem 1rem; padding: 1.7rem 0; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; box-shadow: none; }
-.service-directory .service-card > span:first-child { grid-row: 1 / 3; display: block; margin: .2rem 0 0; }
+.service-directory .service-card { display: grid; grid-template-columns: 10rem 2rem minmax(0, 1fr) auto; gap: .6rem 1rem; padding: 1.7rem 0; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; box-shadow: none; }
+.service-card-image { position: relative; display: block; width: 10rem; height: 7rem; grid-row: 1 / 3; overflow: hidden; border-radius: 2px; background: var(--paper-deep); }
+.service-card-image img { transition: transform .5s var(--ease-out); }
+.service-card:hover .service-card-image img { transform: scale(1.04); }
+.service-directory .service-card > .service-card-meta { grid-column: 2; grid-row: 1 / 3; display: block; margin: .2rem 0 0; }
 .service-directory .rule { display: none; }
-.service-directory .service-card h2, .service-directory .service-card h3 { font-size: 1.5rem; margin: 0; }
-.service-directory .service-card p { grid-column: 2; grid-row: 2; font-size: .84rem; max-width: 38rem; }
-.service-directory .service-card > span:last-child { grid-column: 3; grid-row: 1 / 3; align-self: center; font-size: 0; margin: 0; }
+.service-directory .service-card h2, .service-directory .service-card h3 { grid-column: 3; font-size: 1.5rem; margin: 0; }
+.service-directory .service-card p { grid-column: 3; grid-row: 2; font-size: .84rem; max-width: 38rem; }
+.service-directory .service-card > span:last-child { grid-column: 4; grid-row: 1 / 3; align-self: center; font-size: 0; margin: 0; }
 .service-directory .service-card > span:last-child::after { content: '↗'; font-size: 1.4rem; display: block; transition: transform .25s; }
 .service-directory .service-card:hover { transform: none; }
 .service-directory .service-card:hover > span:last-child::after { transform: translate(3px,-3px); }
@@ -105,6 +108,8 @@ h1, h2, h3 { font-weight: 400; }
 .page-intro h1 { max-width: 56rem; font-size: clamp(2.3rem, 5vw, 4.5rem); }
 .page-intro .lead { max-width: 47rem; font-size: 1.05rem; }
 .page-intro .breadcrumb { margin-bottom: 2.3rem; font-size: .72rem; }
+.service-detail-image { position: relative; width: min(100%, 54rem); height: clamp(14rem, 34vw, 25rem); margin-top: 2.5rem; overflow: hidden; border-radius: 2px; background: var(--paper-deep); }
+.service-detail-image img { object-position: center 48%; }
 .content-layout { padding-top: 0; }
 .content-main { max-width: 46rem; }
 .prose-block { line-height: 1.85; }
@@ -171,7 +176,12 @@ form.card { border: 0; border-top: 3px solid var(--primary); }
  .hero-facts dt { font-size: .6rem; }
  .home-services > .container { display: block; }
  .home-services > .container > .reveal { position: static; }
- .service-directory .service-card { grid-template-columns: 1.4rem 1fr 1.2rem; gap: .5rem .7rem; }
+ .service-directory .service-card { grid-template-columns: 1.4rem minmax(0, 1fr) 1.2rem; gap: .5rem .7rem; }
+ .service-card-image { grid-column: 1 / -1; grid-row: auto; width: 100%; height: clamp(10rem, 42vw, 15rem); margin-bottom: .6rem; }
+ .service-directory .service-card > .service-card-meta { grid-column: 1; grid-row: 2 / 4; }
+ .service-directory .service-card h2, .service-directory .service-card h3 { grid-column: 2; }
+ .service-directory .service-card p { grid-column: 2; }
+ .service-directory .service-card > span:last-child { grid-column: 3; }
  .service-directory .service-card h2, .service-directory .service-card h3 { font-size: 1.3rem; }
  .service-directory .service-card p { font-size: .82rem; }
  .process-timeline { grid-template-columns: 1fr 1fr; gap: 2rem; }

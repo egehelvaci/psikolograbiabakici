@@ -31,6 +31,8 @@ export type Reference = {
 /** Hizmet sayfası şablonunun beklediği alanların tamamı (PRD §8.2). */
 export type ServicePage = {
   slug: string;
+  image: string;
+  imageAlt: string;
   navLabel: string;
   h1: string;
   metaTitle: string;
