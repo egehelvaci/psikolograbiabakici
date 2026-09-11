@@ -177,10 +177,6 @@ export function personSchema() {
     url: `${SITE_URL}${AUTHOR.profileUrl}`,
     sameAs: [...SAME_AS],
     worksFor: { "@id": ORGANIZATION_ID },
-    alumniOf: [
-      { "@type": "EducationalOrganization", name: "Bakü Devlet Üniversitesi" },
-      { "@type": "EducationalOrganization", name: "İstanbul Esenyurt Üniversitesi" },
-    ],
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "Yüksek Lisans",

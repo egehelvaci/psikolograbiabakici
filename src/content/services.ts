@@ -112,8 +112,8 @@ export const SERVICES: ServicePage[] = [
       "Adli süreçlerde kullanılmak üzere rapor düzenlenmez.",
     ],
     credentials: [
-      "Bakü Devlet Üniversitesi — Psikoloji lisansı",
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Psikoloji lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın uygulama deneyimi",
     ],
     faqs: [
@@ -257,8 +257,8 @@ export const SERVICES: ServicePage[] = [
       "Ergen istemediği hâlde sürece zorlanmaz.",
     ],
     credentials: [
-      "Bakü Devlet Üniversitesi — Psikoloji lisansı",
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Psikoloji lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Çocuk ve ergen alanında 5 yılı aşkın uygulama deneyimi",
     ],
     faqs: [
@@ -393,7 +393,7 @@ export const SERVICES: ServicePage[] = [
       "Ebeveyn katılımı olmadan aynı düzeyde ilerleme beklenmez.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Oyun terapisi alanında uygulama eğitimi ve 5 yılı aşkın saha deneyimi",
       "Çocuklarda davranış problemleri alanında yoğunlaşma",
     ],
@@ -534,7 +534,7 @@ export const SERVICES: ServicePage[] = [
       "Tek görüşmede kesin sonuç verilmez.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Çocuk ve ergen değerlendirmesinde yapılandırılmış görüşme ve gözlem deneyimi",
       "Okul ve hekim iş birliği süreçlerinde 5 yılı aşkın uygulama",
     ],
@@ -671,7 +671,7 @@ export const SERVICES: ServicePage[] = [
       "Ebeveyn katılımı olmadan aynı düzeyde ilerleme beklenmez.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Çocuk ve ergenlerde kaygı çalışmalarında 5 yılı aşkın deneyim",
       "Oyun terapisi uygulama eğitimi",
     ],
@@ -804,7 +804,7 @@ export const SERVICES: ServicePage[] = [
       "Okul için resmî davranış raporu düzenlenmez.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Çocuklarda davranış problemleri alanında yoğunlaşma ve 5 yılı aşkın uygulama",
       "Oyun terapisi uygulama eğitimi",
     ],
@@ -937,7 +937,7 @@ export const SERVICES: ServicePage[] = [
       "Tıbbi teşhis konulmaz.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Ebeveyn danışmanlığı ve aile görüşmelerinde 5 yılı aşkın deneyim",
       "Çocuk ve ergen alanında uygulama yoğunlaşması",
     ],
@@ -1067,7 +1067,7 @@ export const SERVICES: ServicePage[] = [
       "Belirli bir seans sayısında sonuç garantisi verilmez.",
     ],
     credentials: [
-      "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı",
+      "Klinik Psikoloji yüksek lisansı",
       "Çocuklarda sosyal beceri ve akran ilişkileri çalışmalarında uygulama deneyimi",
       "Oyun terapisi uygulama eğitimi",
     ],

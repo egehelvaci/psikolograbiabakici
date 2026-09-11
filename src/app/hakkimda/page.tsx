@@ -28,12 +28,12 @@ const BREADCRUMBS = [
 
 const EDUCATION = [
   {
-    title: "Bakü Devlet Üniversitesi — Psikoloji Lisansı",
+    title: "Psikoloji Lisansı",
     description:
       "Psikolojinin temel alanları, gelişim psikolojisi ve araştırma yöntemleri üzerine lisans eğitimi.",
   },
   {
-    title: "İstanbul Esenyurt Üniversitesi — Klinik Psikoloji Yüksek Lisansı",
+    title: "Klinik Psikoloji Yüksek Lisansı",
     description:
       "Klinik değerlendirme, psikoterapi kuramları ve süpervizyon eşliğinde uygulama içeren yüksek lisans programı.",
   },

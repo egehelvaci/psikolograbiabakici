@@ -248,9 +248,7 @@ export default function Home() {
             <Reveal delay={120}>
               <p className="lead mb-5">
                 Çocuk ve ergen psikolojisi alanında 5 yılı aşkın deneyime sahibim.
-                Bakü Devlet Üniversitesi&apos;nde psikoloji lisansımı, İstanbul
-                Esenyurt Üniversitesi&apos;nde Klinik Psikoloji yüksek lisansımı
-                tamamladım.
+                Psikoloji lisansımı ve Klinik Psikoloji yüksek lisansımı tamamladım.
               </p>
               <p className="mb-6 max-w-xl">
                 Uzmanlaştığım alanlar oyun terapisi ve çocuklarda davranış
@@ -261,11 +259,11 @@ export default function Home() {
               <ul className="flex flex-col gap-3 max-w-xl mb-8">
                 <li className="flex items-start gap-4 text-[0.95rem]">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" aria-hidden="true" />
-                  Bakü Devlet Üniversitesi — Psikoloji lisansı
+                  Psikoloji lisansı
                 </li>
                 <li className="flex items-start gap-4 text-[0.95rem]">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" aria-hidden="true" />
-                  İstanbul Esenyurt Üniversitesi — Klinik Psikoloji yüksek lisansı
+                  Klinik Psikoloji yüksek lisansı
                 </li>
                 <li className="flex items-start gap-4 text-[0.95rem]">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2.5" aria-hidden="true" />
