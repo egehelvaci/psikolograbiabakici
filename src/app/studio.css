@@ -68,7 +68,7 @@ body { background: var(--paper); }
 .hero-plate canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .35s ease; }
 .hero-plate canvas[data-ready] { opacity: 1; }
 .hero-shade { z-index: -1; background: linear-gradient(180deg, rgb(15 21 13 / .48), transparent 24%, transparent 77%, rgb(17 22 14 / .58)), linear-gradient(90deg,rgb(17 22 14 / .2),transparent 60%); }
-.atelier-hero-inner { display: flex; flex-direction: column; justify-content: space-between; min-height: clamp(640px, 85svh, 920px); padding-top: var(--mast-height); }
+.atelier-hero-inner { display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh; min-height: 100dvh; padding-top: var(--mast-height); }
 .hero-statement { margin-block: auto; padding-block: clamp(2.8rem, 5.4vw, 6rem); position: relative; }
 .edition-label { display: flex; align-items: center; gap: .7rem; font-size: .68rem; font-weight: 550; letter-spacing: .18em; text-transform: uppercase; }
 .edition-label > span { width: 6px; height: 6px; background: currentColor; border-radius: 100%; }
@@ -148,7 +148,6 @@ body { background: var(--paper); }
 .cta-band { background: #e4e8d4; }
 .site-footer { background: #e7e8df; }
 .footer-emergency { background: #dadfd2; }
-@media (min-width: 1640px) { .atelier-hero-inner { min-height: min(89svh, 1080px); } }
 @media (max-width: 900px) {
   .mast-shortcuts { display: none; }
   .hero-statement h1 { font-size: clamp(4.2rem, 9.4vw, 6.2rem); }
@@ -169,7 +168,6 @@ body { background: var(--paper); }
   .menu-columns { grid-template-columns: 1fr; }
   .menu-photo { display: none; }
   .menu-columns nav a { font-size: clamp(2rem, 7.5vw, 3.5rem); padding-block: 1rem; }
-  .atelier-hero-inner { min-height: clamp(680px, 92svh, 890px); }
   .hero-plate { top: 0; left: 0; right: 0; bottom: auto; height: 61%; }
   .hero-plate img { object-position: 81% 48%; }
   .hero-shade { background: linear-gradient(180deg, rgb(14 20 12 / .72) 0%, transparent 14%, transparent 26%, rgb(34 40 26 / .23) 38%, #22281a 61%); }
