@@ -10,7 +10,7 @@ import { breadcrumbSchema, buildMetadata, faqSchema, graph, webPageSchema } from
 import { LAST_REVIEWED } from "@/lib/site";
 
 const PATH = "/kaynaklar/sikca-sorulan-sorular";
-const TITLE = "Sıkça Sorulan Sorular | Psikolog Rabia Bakıcı";
+const TITLE = "Sıkça Sorulan Sorular | Klinik Psikolog Rabia Bakıcı";
 const DESCRIPTION =
   "Randevu süreci, hizmet kapsamı, yaş grupları, gizlilik ve konum hakkında ebeveynlerin en sık sorduğu soruların yanıtları.";
 

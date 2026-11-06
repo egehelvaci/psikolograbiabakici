@@ -10,15 +10,15 @@ import { breadcrumbSchema, buildMetadata, graph, webPageSchema } from "@/lib/seo
 import { ADDRESS, AUTHOR, LAST_REVIEWED, OPENING_HOURS_DISPLAY } from "@/lib/site";
 
 const PATH = "/hakkimda";
-const TITLE = "Hakkımda | Psikolog Rabia Bakıcı, Başakşehir";
+const TITLE = "Hakkımda | Klinik Psikolog Rabia Bakıcı, Başakşehir";
 const DESCRIPTION =
-  "Psikolog Rabia Bakıcı'nın eğitim geçmişi, çalışma yaklaşımı, çalıştığı yaş grupları ve etik ilkeleri. Başakşehir'de çocuk ve ergen psikolojisi.";
+  "Klinik Psikolog Rabia Bakıcı'nın eğitim geçmişi, çalışma yaklaşımı, çalıştığı yaş grupları ve etik ilkeleri. Başakşehir'de çocuk ve ergen psikolojisi.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
   description: DESCRIPTION,
   path: PATH,
-  ogImageAlt: "Psikolog Rabia Bakıcı",
+  ogImageAlt: "Klinik Psikolog Rabia Bakıcı",
 });
 
 const BREADCRUMBS = [
@@ -103,7 +103,7 @@ export default function AboutPage() {
         breadcrumbs={BREADCRUMBS}
         eyebrow="Hakkımda"
         title={`${AUTHOR.title} ${AUTHOR.name}`}
-        answer={`${AUTHOR.credentials} mezunu, İstanbul Başakşehir'de çocuk ve ergenlerle çalışan bir psikologum. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın uygulama deneyimim var.`}
+        answer={`${AUTHOR.credentials} mezunu, İstanbul Başakşehir'de çocuk ve ergenlerle çalışan bir klinik psikoloğum. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın uygulama deneyimim var.`}
       />
 
       <section className="container mx-auto px-5 lg:px-8 pb-[var(--section-y)]">

@@ -112,14 +112,14 @@ export function organizationSchema() {
     "@type": ["ProfessionalService", "Psychologist"],
     "@id": ORGANIZATION_ID,
     name: SITE_NAME,
-    alternateName: ["Rabia Bakıcı Psikolog", "Çocuk Psikoloğu Rabia Bakıcı"],
+    alternateName: ["Rabia Bakıcı", "Rabia Bakıcı Klinik Psikolog"],
     url: SITE_URL,
     image: {
       "@type": "ImageObject",
       url: `${SITE_URL}${AUTHOR.image}`,
       width: 800,
       height: 600,
-      caption: `${SITE_NAME} — İstanbul Başakşehir'de çocuk ve ergen psikoloğu`,
+      caption: `${SITE_NAME} — İstanbul Başakşehir'de çocuk ve ergenlerle çalışan klinik psikolog`,
     },
     logo: {
       "@type": "ImageObject",
@@ -130,7 +130,7 @@ export function organizationSchema() {
     telephone: PHONE,
     email: EMAIL,
     description:
-      "İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, çocuklarda kaygı, davranış problemleri, psikolojik değerlendirme ve ebeveyn danışmanlığı.",
+      "İstanbul Başakşehir'de çocuk ve ergenlerle çalışan klinik psikolog. Oyun terapisi, çocuklarda kaygı, davranış problemleri, psikolojik değerlendirme ve ebeveyn danışmanlığı.",
     founder: { "@id": PERSON_ID },
     address: {
       "@type": "PostalAddress",

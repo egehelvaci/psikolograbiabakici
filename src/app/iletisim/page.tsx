@@ -21,9 +21,9 @@ import {
 } from "@/lib/site";
 
 const PATH = "/iletisim";
-const TITLE = "İletişim ve Konum | Psikolog Rabia Bakıcı";
+const TITLE = "İletişim ve Konum | Klinik Psikolog Rabia Bakıcı";
 const DESCRIPTION =
-  "Başakşehir'de çocuk ve ergen psikoloğu Rabia Bakıcı ile iletişim: randevu talebi, telefon, e-posta, çalışma saatleri, ulaşım ve otopark bilgileri.";
+  "Klinik Psikolog Rabia Bakıcı ile randevu için iletişime geçin. Başakşehir ve Eyüpsultan’daki görüşmelerin çalışma saatlerini ve ulaşım bilgilerini inceleyin.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

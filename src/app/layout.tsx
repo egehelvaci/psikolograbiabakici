@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Barlow_Condensed, Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import "./editorial.css";
+import "./studio.css";
 import Analytics from "@/components/Analytics";
 import ImageProtection from "@/components/ImageProtection";
 import ScrollTopButton from "@/components/ScrollTopButton";
@@ -27,17 +28,24 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const display = Barlow_Condensed({
+  variable: "--font-display",
+  subsets: ["latin", "latin-ext"],
+  weight: "700",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#723e49",
+  themeColor: "#293428",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Başakşehir Çocuk ve Ergen Psikoloğu | Rabia Bakıcı",
+    default: "Klinik Psikolog Rabia Bakıcı | Çocuk ve Ergen Psikolojisi",
     template: `%s | ${SITE_NAME}`,
   },
   description:
@@ -73,11 +81,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
-        {/* JavaScript kapalıyken scroll-reveal içeriği gizlememeli */}
-        <noscript>
-          <style>{`.reveal{opacity:1 !important;transform:none !important}.nav-group:focus-within .nav-panel{opacity:1;visibility:visible;transform:none}`}</style>
-        </noscript>
+      <body className={`${geistSans.variable} ${fraunces.variable} ${display.variable} antialiased`}>
         <JsonLd data={SITE_GRAPH} />
         <a href="#icerik" className="skip-link">
           İçeriğe geç
@@ -93,4 +97,3 @@ export default function RootLayout({
     </html>
   );
 }
-

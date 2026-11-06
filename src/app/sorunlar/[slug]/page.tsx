@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: concern.metaTitle,
     description: concern.metaDescription,
     path: `/sorunlar/${concern.slug}`,
-    ogImageAlt: `${concern.h1} — Psikolog Rabia Bakıcı`,
+    ogImageAlt: `${concern.h1} — Klinik Psikolog Rabia Bakıcı`,
   });
 }
 

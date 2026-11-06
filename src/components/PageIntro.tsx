@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/lib/seo";
 
@@ -24,9 +25,11 @@ export default function PageIntro({
     <section className="page-intro">
       <div className="container mx-auto px-5 lg:px-8">
         <Breadcrumbs items={breadcrumbs} />
-        {eyebrow ? <span className="eyebrow mt-6 mb-4">{eyebrow}</span> : null}
-        <h1 className="display-2 mt-4">{title}</h1>
-        {answer ? <p className="lead mt-6 max-w-3xl">{answer}</p> : null}
+        <Reveal>
+          {eyebrow ? <span className="eyebrow mt-6 mb-4">{eyebrow}</span> : null}
+          <h1 className="display-2 mt-4">{title}</h1>
+          {answer ? <p className="lead mt-6 max-w-3xl">{answer}</p> : null}
+        </Reveal>
         {children}
       </div>
     </section>

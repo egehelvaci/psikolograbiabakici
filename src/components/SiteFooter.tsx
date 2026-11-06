@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProtectedImage from "@/components/ProtectedImage";
+import PracticeMark from "@/components/PracticeMark";
 import TrackedLink from "@/components/TrackedLink";
 import { LEGAL_NAV, MAIN_NAV } from "@/content/navigation";
 import { SERVICES } from "@/content/services";
@@ -26,19 +26,10 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="container mx-auto px-5 lg:px-8 py-14">
-        <div className="footer-signoff"><span>Her çocuk, kendi ritminde.</span><Link href="/iletisim" className="text-link">Birlikte ilk adım <span aria-hidden="true">↗</span></Link></div>
         <div className="footer-grid">
           <div>
             <Link href="/" className="flex items-center gap-3" aria-label={`${SITE_NAME} — Ana sayfa`}>
-              <span className="relative w-11 h-11 rounded-full overflow-hidden border border-line bg-surface shrink-0">
-                <ProtectedImage
-                  src="/images/logo.jpg"
-                  alt=""
-                  fill
-                  className="object-cover scale-[1.4]"
-                  sizes="44px"
-                />
-              </span>
+              <PracticeMark />
               <span className="flex flex-col leading-tight">
                 <span className="font-serif font-semibold text-ink">{SITE_NAME}</span>
                 <span className="text-xs text-ink-soft/80">{SITE_TAGLINE}</span>

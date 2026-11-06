@@ -1,11 +1,11 @@
 {
-  "name": "Psikolog Rabia Bakıcı - İstanbul Başakşehir Çocuk ve Ergen Psikoloğu",
-  "short_name": "Psikolog Rabia Bakıcı",
-  "description": "İstanbul Başakşehir'de çocuk ve ergen psikoloğu. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri.",
+  "name": "Klinik Psikolog Rabia Bakıcı · Çocuk ve Ergen Psikolojisi",
+  "short_name": "Klinik Psikolog Rabia Bakıcı",
+  "description": "İstanbul Başakşehir'de çocuk ve ergenlerle çalışan klinik psikolog. Oyun terapisi, aile danışmanlığı ve psikolojik değerlendirme hizmetleri.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f3ec",
-  "theme_color": "#2f5d3f",
+  "background_color": "#f7f6ef",
+  "theme_color": "#293428",
   "orientation": "portrait-primary",
   "icons": [
     {

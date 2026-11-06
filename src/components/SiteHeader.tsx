@@ -1,199 +1,76 @@
 "use client";
 
-import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import ProtectedImage from "@/components/ProtectedImage";
-import { trackEvent } from "@/lib/analytics";
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { MAIN_NAV } from "@/content/navigation";
-import { APPOINTMENT_MESSAGE, AUTHOR, whatsappLink } from "@/lib/site";
+import { APPOINTMENT_MESSAGE, AUTHOR, ADDRESS, whatsappLink } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
+import ProtectedImage from "./ProtectedImage";
+import PracticeMark from "./PracticeMark";
 
-/**
- * Yapışkan üst menü.
- *
- * Alt menüler standart bağlantılardan oluşur ve masaüstünde hem klavye odağı
- * hem fare üzerinde açılır; böylece tarayıcı JavaScript çalıştırmasa da
- * bağlantılar taranabilir kalır (PRD §9.8).
- */
 export default function SiteHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const toggleRef = useRef<HTMLButtonElement>(null);
+  const reduced = useReducedMotion();
+  const panel = useRef<HTMLDialogElement>(null);
+  const [opened, setOpened] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const close = useCallback(() => panel.current?.close(), []);
 
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        const activeGroup = document.activeElement?.closest(".nav-group");
-        if (activeGroup) activeGroup.querySelector<HTMLAnchorElement>("a")?.focus();
-        else if (menuOpen) toggleRef.current?.focus();
-        setMenuOpen(false);
-        setOpenGroup(null);
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => setScrolled(window.scrollY > 32);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
-
+  useEffect(close, [close, pathname]);
   useEffect(() => {
-    setMenuOpen(false);
-    setOpenGroup(null);
-  }, [pathname]);
+    if (!opened) return;
+    const previous = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    return () => { document.documentElement.style.overflow = previous; };
+  }, [opened]);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
-
+  const overlay = pathname === "/" && !scrolled;
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}
-      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setMenuOpen(false); }}>
-      <div className="container mx-auto px-5 lg:px-8 flex items-center justify-between h-20 gap-4">
-        <Link href="/" className="flex items-center gap-3 shrink-0" aria-label={`${AUTHOR.name} — Ana sayfa`}>
-          <span className="relative w-12 h-12 rounded-full overflow-hidden border border-line bg-surface shrink-0">
-            <ProtectedImage
-              src="/images/logo.jpg"
-              alt=""
-              fill
-              className="object-cover scale-[1.4]"
-              sizes="48px"
-            />
-          </span>
-          <span className="brand-name flex flex-col leading-tight">
-            <span className="font-serif font-semibold text-ink text-base tracking-tight">
-              {AUTHOR.name}
-            </span>
-            <span className="text-[0.7rem] uppercase tracking-[0.18em] text-ink-soft/80">
-              Çocuk ve Ergen Psikoloğu
-            </span>
-          </span>
+    <header className={`masthead ${pathname === "/" ? "over-hero" : ""} ${overlay ? "is-clear" : ""}`}>
+      <div className="container mast-inner">
+        <Link href="/" className="mast-brand" aria-label={`${AUTHOR.name} — Ana sayfa`}>
+          <PracticeMark /><span>{AUTHOR.name}<small>{AUTHOR.title}</small></span>
         </Link>
-
-        {/* Masaüstü menü */}
-        <nav className="hidden lg:flex items-center gap-6" aria-label="Ana menü">
-          {MAIN_NAV.map((item) =>
-            item.children ? (
-              <div
-                key={item.href}
-                className="nav-group"
-                onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}
-                onMouseEnter={() => setOpenGroup(item.href)}
-                onMouseLeave={() => setOpenGroup(null)}
-              >
-                <Link
-                  href={item.href}
-                  className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  onFocus={() => setOpenGroup(item.href)}
-                >
-                  {item.label}
-                  <span className="nav-caret" aria-hidden="true">
-                    ▾
-                  </span>
-                </Link>
-                <div className={`nav-panel ${openGroup === item.href ? "is-open" : ""}`}>
-                  <ul>
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link href={child.href} onClick={() => setOpenGroup(null)}>
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                    <li className="nav-panel-all">
-                      <Link href={item.href}>Tümünü gör →</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
-          <a
-            href={whatsappLink(APPOINTMENT_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-sm shrink-0"
-            onClick={() =>
-              trackEvent("generate_lead", { method: "whatsapp", cta_location: "header" })
-            }
-          >
-            Randevu Talep Et
-          </a>
+        <nav className="mast-shortcuts" aria-label="Ana menü">
+          <Link href="/hakkimda" aria-current={pathname === "/hakkimda" ? "page" : undefined}>Hakkımda</Link>
+          <Link href="/hizmetler" aria-current={pathname === "/hizmetler" ? "page" : undefined}>Çalışma alanları</Link>
+          <Link href="/kaynaklar" aria-current={pathname === "/kaynaklar" ? "page" : undefined}>Kaynaklar</Link>
         </nav>
-
-        {/* Mobil menü butonu */}
-        <button
-          ref={toggleRef}
-          className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full border border-line-strong text-ink"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.75"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            {menuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
+        <div className="mast-actions">
+          <a className="mast-book" href={whatsappLink(APPOINTMENT_MESSAGE)} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("generate_lead", { method: "whatsapp", cta_location: "header" })}>Randevu <ArrowUpRight size={15} aria-hidden="true" /></a>
+          <button className="mast-menu" aria-label="Menüyü aç" aria-haspopup="dialog" aria-controls="site-menu" aria-expanded={opened}
+            onClick={() => { panel.current?.showModal(); setOpened(true); }}><span>Menü</span><Menu size={21} strokeWidth={1.5} aria-hidden="true" /></button>
+        </div>
       </div>
-
-      {/* Mobil menü */}
-      {menuOpen && (
-        <nav className="lg:hidden mobile-menu" id="mobile-menu" aria-label="Mobil menü">
-          <p className="mobile-menu-eyebrow">Keşfedin</p>
-          <ul>
-            {MAIN_NAV.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="mobile-menu-link">
-                  {item.label}
-                </Link>
-                {item.children ? (
-                  <ul className="mobile-submenu">
-                    {item.children.map((child) => (
-                      <li key={child.href}>
-                        <Link href={child.href}>{child.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-          <a
-            href={whatsappLink(APPOINTMENT_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary w-full mt-5"
-            onClick={() =>
-              trackEvent("generate_lead", { method: "whatsapp", cta_location: "mobile_menu" })
-            }
-          >
-            Randevu Talep Et
-          </a>
-        </nav>
-      )}
+      <dialog ref={panel} id="site-menu" className="menu-dialog" aria-label="Site menüsü" onClose={() => setOpened(false)}>
+        {opened && (
+          <div className="container menu-sheet">
+            <div className="menu-top"><span className="mast-brand"><PracticeMark /><span>{AUTHOR.name}<small>{AUTHOR.title}</small></span></span>
+              <button onClick={close} className="mast-menu" aria-label="Menüyü kapat" autoFocus>Kapat <X size={21} aria-hidden="true" /></button>
+            </div>
+            <div className="menu-columns">
+              <nav aria-label="Tüm sayfalar">
+                {MAIN_NAV.map((item, i) => (
+                  <motion.div key={item.href} initial={reduced ? false : { y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .32, delay: reduced ? 0 : i * .045 }}>
+                    <Link href={item.href} onClick={close}>{item.label}<ArrowUpRight aria-hidden="true" /></Link>
+                  </motion.div>
+                ))}
+              </nav>
+              <aside className="menu-photo"><ProtectedImage src={AUTHOR.image} alt="Klinik Psikolog Rabia Bakıcı" fill sizes="340px" /></aside>
+            </div>
+            <p className="menu-address">{ADDRESS.display}</p>
+          </div>
+        )}
+      </dialog>
     </header>
   );
 }

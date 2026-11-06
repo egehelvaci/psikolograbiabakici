@@ -15,7 +15,7 @@ export const ARTICLES: ArticlePage[] = [
     h1: "Oyun Terapisi Nedir ve Nasıl İşler?",
     metaTitle: "Oyun Terapisi Nedir? Nasıl İşler? | Rabia Bakıcı",
     metaDescription:
-      "Oyun terapisi nedir, hangi durumlarda kullanılır ve seanslarda neler olur? Bir çocuk psikoloğunun anlatımıyla oyun terapisinin işleyişi.",
+      "Oyun terapisi nedir, hangi durumlarda kullanılır ve seanslarda neler olur? Klinik Psikolog Rabia Bakıcı oyun terapisinin işleyişini anlatıyor.",
     excerpt:
       "Oyun terapisinin ne olduğu, hangi durumlarda kullanıldığı ve bir seansın nasıl ilerlediği.",
     answer:

@@ -27,7 +27,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
     path: "/gizlilik-politikasi",
     navLabel: "Gizlilik Politikası",
     h1: "Gizlilik Politikası",
-    metaTitle: "Gizlilik Politikası | Psikolog Rabia Bakıcı",
+    metaTitle: "Gizlilik Politikası | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Bu web sitesinde hangi kişisel veriler işlenir, hangi amaçla kullanılır, ne kadar süre saklanır ve ilgili kişi hakları nelerdir?",
     intro:
@@ -126,7 +126,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
     path: "/cerez-politikasi",
     navLabel: "Çerez Politikası",
     h1: "Çerez Politikası",
-    metaTitle: "Çerez Politikası | Psikolog Rabia Bakıcı",
+    metaTitle: "Çerez Politikası | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Bu web sitesinde hangi çerezler kullanılır, hangi amaçla kullanılır ve çerez tercihlerinizi nasıl yönetebilirsiniz?",
     intro:
@@ -250,7 +250,7 @@ export const LEGAL_DOCUMENTS: LegalDocument[] = [
     path: "/erisilebilirlik",
     navLabel: "Erişilebilirlik",
     h1: "Erişilebilirlik Beyanı",
-    metaTitle: "Erişilebilirlik Beyanı | Psikolog Rabia Bakıcı",
+    metaTitle: "Erişilebilirlik Beyanı | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Bu web sitesinde uygulanan erişilebilirlik önlemleri, bilinen sınırlar ve geri bildirim yolları. WCAG 2.2 AA hedefi.",
     intro:

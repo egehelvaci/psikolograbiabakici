@@ -6,8 +6,8 @@
  * değerler Google Business Profile ve dizin kayıtlarıyla birebir aynı olmalıdır.
  */
 export const SITE_URL = "https://psikolograbiabakici.com";
-export const SITE_NAME = "Psikolog Rabia Bakıcı";
-export const SITE_TAGLINE = "Çocuk ve Ergen Psikoloğu · İstanbul Başakşehir";
+export const SITE_NAME = "Klinik Psikolog Rabia Bakıcı";
+export const SITE_TAGLINE = "Çocuk ve ergen psikolojisi · İstanbul Başakşehir";
 export const PHONE = "+905452855283";
 export const PHONE_DISPLAY = "+90 (545) 285 52 83";
 export const EMAIL = "psikolograbiabakici@gmail.com";
@@ -34,7 +34,7 @@ export const ADDRESS = {
 } as const;
 
 export const MAPS_SEARCH_URL =
-  "https://www.google.com/maps/search/?api=1&query=Psikolog+Rabia+Bak%C4%B1c%C4%B1+Ba%C5%9Fak%C5%9Fehir+%C4%B0stanbul";
+  "https://www.google.com/maps/search/?api=1&query=Klinik+Psikolog+Rabia+Bak%C4%B1c%C4%B1+Ba%C5%9Fak%C5%9Fehir+%C4%B0stanbul";
 
 /** Google Maps yerleştirmesi anahtar gerektirmeyen arama modunu kullanır. */
 export const MAPS_EMBED_URL =
@@ -57,10 +57,10 @@ export const RESPONSE_TIME_DISPLAY = "Mesajlar genellikle aynı gün, en geç 1 
  */
 export const AUTHOR = {
   name: "Rabia Bakıcı",
-  title: "Psikolog",
+  title: "Klinik Psikolog",
   credentials: "Klinik Psikoloji Yüksek Lisansı",
   shortBio:
-    "İstanbul Başakşehir'de çocuk ve ergenlerle çalışan psikolog. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın deneyim.",
+    "İstanbul Başakşehir'de çocuk ve ergenlerle çalışan klinik psikolog. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın deneyim.",
   image: "/images/rabiabakici.jpg",
   profileUrl: "/hakkimda",
 } as const;

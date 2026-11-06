@@ -8,11 +8,11 @@ import type { ServicePage } from "./types";
 export const SERVICES: ServicePage[] = [
   {
     slug: "cocuk-psikologu",
-    image: "/images/child-development.jpg",
-    imageAlt: "Çocuğun yaratıcı etkinlikle ilgilendiği bir an",
+    image: "/images/atolye-cocuk.webp",
+    imageAlt: "Renkli kâğıtları bir araya getiren bir çocuk",
     navLabel: "Çocuk Psikolojisi",
-    h1: "Başakşehir Çocuk Psikoloğu",
-    metaTitle: "Başakşehir Çocuk Psikoloğu | Rabia Bakıcı",
+    h1: "Başakşehir’de Çocuk Psikolojisi",
+    metaTitle: "Çocuk Psikolojisi | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Başakşehir'de çocuk psikolojisi desteği: kaygı, davranış problemleri, uyum güçlükleri ve okul sorunları. Süreç, yaş grupları ve randevu bilgileri.",
     summary:
@@ -161,11 +161,11 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "ergen-psikologu",
-    image: "/images/family-talk.jpg",
-    imageAlt: "Ergenlerin birlikte zaman geçirdiği bir an",
+    image: "/images/atolye-ergen.webp",
+    imageAlt: "Pencere kenarında çizim defterini tutan bir genç",
     navLabel: "Ergen Psikolojisi",
-    h1: "Başakşehir Ergen Psikoloğu",
-    metaTitle: "Başakşehir Ergen Psikoloğu | Rabia Bakıcı",
+    h1: "Başakşehir’de Ergen Psikolojisi",
+    metaTitle: "Ergen Psikolojisi | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Ergenlerle psikolojik destek çalışması: kaygı, öfke, iletişim sorunları, okul ve akran baskısı. Gizlilik, ebeveyn katılımı ve süreç bilgileri.",
     summary:
@@ -297,11 +297,11 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "oyun-terapisi",
-    image: "/images/play-therapy.jpg",
-    imageAlt: "Oyun terapisi materyalleriyle çalışan çocuk",
+    image: "/images/atolye-oyun.webp",
+    imageAlt: "Ahşap kemerlerle oynayan bir çocuğun elleri",
     navLabel: "Oyun Terapisi",
     h1: "Başakşehir'de Oyun Terapisi",
-    metaTitle: "Oyun Terapisi Başakşehir | Psikolog Rabia Bakıcı",
+    metaTitle: "Oyun Terapisi Başakşehir | Klinik Psikolog Rabia Bakıcı",
     metaDescription:
       "Oyun terapisi nedir, hangi yaşlara uygundur ve seanslar nasıl işler? Başakşehir'de oyun terapisi süreci, ebeveyn katılımı ve randevu bilgileri.",
     summary:
@@ -844,8 +844,8 @@ export const SERVICES: ServicePage[] = [
 
   {
     slug: "aile-ve-ebeveyn-danismanligi",
-    image: "/images/family.jpg",
-    imageAlt: "Ailenin birlikte yürüdüğü sıcak bir an",
+    image: "/images/atolye-aile.webp",
+    imageAlt: "Birlikte kile şekil veren ebeveyn ve çocuk",
     navLabel: "Aile ve Ebeveyn Danışmanlığı",
     h1: "Aile ve Ebeveyn Danışmanlığı",
     metaTitle: "Aile ve Ebeveyn Danışmanlığı | Başakşehir",

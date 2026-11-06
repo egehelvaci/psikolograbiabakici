@@ -56,7 +56,7 @@ export default function ArticleHubPage() {
         breadcrumbs={BREADCRUMBS}
         eyebrow="Yazılar"
         title="Ebeveynler için Yazılar"
-        answer="Yazıların tamamı bir psikolog tarafından hazırlanır ve düzenli olarak gözden geçirilir. İçerikler bilgilendirme amaçlıdır; bireysel değerlendirmenin ya da tıbbi görüşün yerine geçmez."
+        answer="Yazıların tamamı Klinik Psikolog Rabia Bakıcı tarafından hazırlanır ve düzenli olarak gözden geçirilir. İçerikler bilgilendirme amaçlıdır; bireysel değerlendirmenin ya da tıbbi görüşün yerine geçmez."
       />
 
       <section className="container mx-auto px-5 lg:px-8 pb-[var(--section-y)]">

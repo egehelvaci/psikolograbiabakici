@@ -12,7 +12,7 @@ import { breadcrumbSchema, buildMetadata, canonicalUrl, graph, webPageSchema } f
 import { LAST_REVIEWED } from "@/lib/site";
 
 const PATH = "/hizmetler";
-const TITLE = "Hizmetler | Çocuk ve Ergen Psikoloğu Başakşehir";
+const TITLE = "Hizmetler | Klinik Psikolog Rabia Bakıcı";
 const DESCRIPTION =
   "Başakşehir'de çocuk ve ergen psikolojisi hizmetleri: oyun terapisi, kaygı desteği, davranış problemleri, psikolojik değerlendirme ve ebeveyn danışmanlığı.";
 
