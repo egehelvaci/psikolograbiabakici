@@ -146,6 +146,7 @@ export function organizationSchema() {
     },
     openingHoursSpecification: OPENING_HOURS.map((slot) => ({
       "@type": "OpeningHoursSpecification",
+      name: slot.location,
       dayOfWeek: [...slot.days],
       opens: slot.opens,
       closes: slot.closes,
@@ -153,6 +154,7 @@ export function organizationSchema() {
     sameAs: [...SAME_AS],
     areaServed: [
       { "@type": "AdministrativeArea", name: "Başakşehir" },
+      { "@type": "AdministrativeArea", name: "Eyüpsultan" },
       { "@type": "City", name: "İstanbul" },
     ],
     availableLanguage: ["Turkish"],

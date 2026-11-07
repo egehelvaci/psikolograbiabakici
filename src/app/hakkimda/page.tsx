@@ -7,7 +7,7 @@ import ProtectedImage from "@/components/ProtectedImage";
 import RelatedLinks from "@/components/RelatedLinks";
 import { SERVICES } from "@/content/services";
 import { breadcrumbSchema, buildMetadata, graph, webPageSchema } from "@/lib/seo";
-import { ADDRESS, AUTHOR, LAST_REVIEWED, OPENING_HOURS_DISPLAY } from "@/lib/site";
+import { AUTHOR, LAST_REVIEWED, OPENING_HOURS_DISPLAY, PRACTICE_AGE_RANGE } from "@/lib/site";
 
 const PATH = "/hakkimda";
 const TITLE = "Hakkımda | Klinik Psikolog Rabia Bakıcı, Başakşehir";
@@ -103,7 +103,7 @@ export default function AboutPage() {
         breadcrumbs={BREADCRUMBS}
         eyebrow="Hakkımda"
         title={`${AUTHOR.title} ${AUTHOR.name}`}
-        answer={`${AUTHOR.credentials} mezunu, İstanbul Başakşehir'de çocuk ve ergenlerle çalışan bir klinik psikoloğum. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın uygulama deneyimim var.`}
+        answer={`Başakşehir ve Eyüpsultan’da ${PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenlerle çalışan bir klinik psikoloğum. Görüşmelerimde oyun terapisine ve ebeveynlerle iş birliğine yer veriyorum.`}
       />
 
       <section className="container mx-auto px-5 lg:px-8 pb-[var(--section-y)]">
@@ -122,7 +122,7 @@ export default function AboutPage() {
             <dl className="detail-grid mt-10">
               <div>
                 <dt>Çalışılan yaş grupları</dt>
-                <dd>3–18 yaş çocuk ve ergenler, ayrıca ebeveynler</dd>
+                <dd>{PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenler ile ebeveynleri</dd>
               </div>
               <div>
                 <dt>Görüşme dili</dt>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               <div>
                 <dt>Konum ve saatler</dt>
                 <dd>
-                  {ADDRESS.display} · {OPENING_HOURS_DISPLAY}
+                  {OPENING_HOURS_DISPLAY}
                 </dd>
               </div>
             </dl>

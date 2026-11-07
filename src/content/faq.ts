@@ -1,4 +1,5 @@
 import type { Faq } from "./types";
+import { OPENING_HOURS_DISPLAY, PRACTICE_AGE_RANGE } from "@/lib/site";
 
 export type FaqGroup = {
   id: string;
@@ -54,7 +55,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Hangi yaş gruplarıyla çalışıyorsunuz?",
         answer:
-          "Ağırlıklı olarak 3–18 yaş aralığındaki çocuk ve ergenlerle ve onların ebeveynleriyle çalışılmaktadır. Oyun terapisi çoğunlukla 3–10 yaş, ergen çalışmaları 12–18 yaş aralığında yürütülür.",
+          `${PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenlerle ve aileleriyle çalışıyorum. Görüşmelerin içeriğini çocuğun yaşına ve ihtiyaçlarına göre birlikte planlıyoruz.`,
       },
       {
         question: "Online görüşme yapıyor musunuz?",
@@ -147,7 +148,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Görüşmeler nerede yapılıyor?",
         answer:
-          "Görüşmeler İstanbul Başakşehir'de yapılmaktadır. Danışan gizliliği gereği açık adres web sitesinde yayımlanmaz; görüşme yerinin tam adresi, ulaşım ve otopark bilgileri randevu onaylandığında sizinle paylaşılır.",
+          "Görüşmeler İstanbul’da Başakşehir ve Eyüpsultan’da yapılıyor. Tam adres ve ulaşım bilgileri randevunuz onaylandığında sizinle paylaşılıyor.",
       },
       {
         question: "Hangi bölgelerden danışan kabul ediyorsunuz?",
@@ -157,7 +158,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       {
         question: "Çalışma saatleriniz nedir?",
         answer:
-          "Görüşmeler Pazartesi ve Salı günleri 12:00 – 19:00 arasında planlanmaktadır. Uygun saat için WhatsApp üzerinden bilgi alabilirsiniz.",
+          `${OPENING_HOURS_DISPLAY}. Uygun saat için WhatsApp üzerinden bilgi alabilirsiniz.`,
       },
     ],
   },

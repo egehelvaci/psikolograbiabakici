@@ -1,4 +1,4 @@
-import { LAST_REVIEWED } from "@/lib/site";
+import { LAST_REVIEWED, PRACTICE_AGE_RANGE } from "@/lib/site";
 import type { ServicePage } from "./types";
 
 /**
@@ -16,7 +16,7 @@ export const SERVICES: ServicePage[] = [
     metaDescription:
       "Başakşehir'de çocuk psikolojisi desteği: kaygı, davranış problemleri, uyum güçlükleri ve okul sorunları. Süreç, yaş grupları ve randevu bilgileri.",
     summary:
-      "3–12 yaş arası çocuklarda duygusal, davranışsal ve uyum güçlüklerinde çocuk odaklı psikolojik destek.",
+      "2–12 yaş arası çocuklarda duygusal, davranışsal ve uyum güçlüklerinde çocuk odaklı psikolojik destek.",
     answer:
       "Çocuk psikolojisi desteği, bir çocuğun duygularını, davranışlarını ve ilişkilerini kendi gelişim dönemi içinde değerlendirip; çocuğa ve ebeveyne birlikte çalışan bir destek planı sunmaktır. Amaç çocuğu \"düzeltmek\" değil, zorlandığı alanda ona ve ailesine uygun beceriler kazandırmaktır.",
     suitableFor: [
@@ -61,7 +61,7 @@ export const SERVICES: ServicePage[] = [
       {
         heading: "Başakşehir ve çevresinden ulaşım",
         paragraphs: [
-          "Görüşmeler İstanbul Başakşehir'de yapılmaktadır. Başakşehir'in yanı sıra Küçükçekmece, Bahçeşehir, Esenler, Sultangazi ve Arnavutköy çevresinden gelen ailelerle de çalışılmaktadır. Randevu onaylandığında görüşme yerinin tam adresi, ulaşım ve otopark bilgileri sizinle paylaşılır.",
+          "Görüşmeler İstanbul’da Başakşehir ve Eyüpsultan’da yapılır. Randevu onaylandığında görüşme yerinin tam adresi, ulaşım ve otopark bilgileri sizinle paylaşılır.",
           "Çocukla yapılan çalışmada devamlılık önemlidir. Bu nedenle randevu planlanırken ulaşım süresi, okul saatleri ve çocuğun günlük ritmi birlikte gözden geçirilir.",
         ],
       },
@@ -99,7 +99,7 @@ export const SERVICES: ServicePage[] = [
       },
     ],
     ageGroups:
-      "Ağırlıklı olarak 3–12 yaş arası çocuklarla çalışılmaktadır. 12 yaş üzeri için ergen psikolojisi çalışması ayrı bir çerçevede yürütülür.",
+      "Çocuk görüşmeleri 2–12 yaş aralığına yöneliktir. 12–14 yaş arasında ergen görüşmeleri de planlanabilir.",
     parentInvolvement:
       "Ebeveyn katılımı sürecin ayrılmaz bir parçasıdır. Çocuk seanslarının yanında düzenli ebeveyn görüşmeleri planlanır; evde denenecek yaklaşımlar birlikte belirlenir. Çocuğun seans içeriği, güven ilişkisini koruyacak biçimde ve çocuğun yaşına uygun bir çerçevede paylaşılır.",
     sessionFormat:
@@ -114,7 +114,7 @@ export const SERVICES: ServicePage[] = [
     credentials: [
       "Psikoloji lisansı",
       "Klinik Psikoloji yüksek lisansı",
-      "Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın uygulama deneyimi",
+      "Oyun terapisi ve çocuklarda davranış problemleri alanında uygulama deneyimi",
     ],
     faqs: [
       {
@@ -169,7 +169,7 @@ export const SERVICES: ServicePage[] = [
     metaDescription:
       "Ergenlerle psikolojik destek çalışması: kaygı, öfke, iletişim sorunları, okul ve akran baskısı. Gizlilik, ebeveyn katılımı ve süreç bilgileri.",
     summary:
-      "12–18 yaş aralığında kimlik, kaygı, öfke, motivasyon ve iletişim konularında ergene ve ailesine destek.",
+      "12–14 yaş aralığında kimlik, kaygı, öfke, motivasyon ve iletişim konularında ergene ve ailesine destek.",
     answer:
       "Ergenlik döneminde yapılan psikolojik çalışma, gencin kendi sesini bulabileceği güvenli bir alan kurmayı ve aynı zamanda aile içi iletişimi onarmayı hedefler. Ergenin sürece kendi isteğiyle katılması, sonucun kalıcılığı açısından belirleyicidir.",
     suitableFor: [
@@ -244,7 +244,7 @@ export const SERVICES: ServicePage[] = [
           "Hedeflere ne kadar yaklaşıldığı ergen ve aileyle birlikte değerlendirilir; gerekirse plan güncellenir.",
       },
     ],
-    ageGroups: "12–18 yaş aralığındaki ergenlerle çalışılmaktadır.",
+    ageGroups: "12–14 yaş aralığındaki ergenlerle çalışılmaktadır.",
     parentInvolvement:
       "Ergenin gizliliği korunarak, düzenli aralıklarla ebeveyn görüşmeleri yapılır. Bu görüşmelerde seans içeriği değil, sürecin gidişatı ve ailenin destekleyici rolü konuşulur.",
     sessionFormat:
@@ -259,7 +259,7 @@ export const SERVICES: ServicePage[] = [
     credentials: [
       "Psikoloji lisansı",
       "Klinik Psikoloji yüksek lisansı",
-      "Çocuk ve ergen alanında 5 yılı aşkın uygulama deneyimi",
+      "Çocuk ve ergenlerle klinik görüşme deneyimi",
     ],
     faqs: [
       {
@@ -394,7 +394,7 @@ export const SERVICES: ServicePage[] = [
     ],
     credentials: [
       "Klinik Psikoloji yüksek lisansı",
-      "Oyun terapisi alanında uygulama eğitimi ve 5 yılı aşkın saha deneyimi",
+      "Oyun terapisi alanında uygulama eğitimi",
       "Çocuklarda davranış problemleri alanında yoğunlaşma",
     ],
     faqs: [
@@ -521,7 +521,7 @@ export const SERVICES: ServicePage[] = [
           "Gerekli durumlarda hekime, özel eğitime veya okul rehberliğine yönlendirme yapılır.",
       },
     ],
-    ageGroups: "3–18 yaş aralığında, çocuğun yaşına uygun araçlar seçilerek uygulanır.",
+    ageGroups: `${PRACTICE_AGE_RANGE} yaş aralığında, çocuğun yaşına uygun araçlar seçilerek uygulanır.`,
     parentInvolvement:
       "Ebeveyn, değerlendirmenin en önemli bilgi kaynağıdır. Gelişim öyküsü, günlük rutinler ve gözlemleriniz olmadan bulgular eksik kalır. Süreç bir geri bildirim görüşmesiyle tamamlanır ve tüm bulgular sizinle paylaşılır.",
     sessionFormat:
@@ -536,7 +536,7 @@ export const SERVICES: ServicePage[] = [
     credentials: [
       "Klinik Psikoloji yüksek lisansı",
       "Çocuk ve ergen değerlendirmesinde yapılandırılmış görüşme ve gözlem deneyimi",
-      "Okul ve hekim iş birliği süreçlerinde 5 yılı aşkın uygulama",
+      "Okul ve hekimlerle iş birliği deneyimi",
     ],
     faqs: [
       {
@@ -658,7 +658,7 @@ export const SERVICES: ServicePage[] = [
         description: "Seanslar aralıklandırılarak kazanılan becerilerin günlük yaşamda yerleşmesi desteklenir.",
       },
     ],
-    ageGroups: "4–18 yaş aralığında, yaşa uygun yöntemlerle çalışılır.",
+    ageGroups: "4–14 yaş aralığında, yaşa uygun yöntemlerle çalışılır.",
     parentInvolvement:
       "Kaygı çalışmasında ebeveyn katılımı sonucu en çok etkileyen unsurdur. Ev içindeki kaçınma döngüsünü kırmak, çocuğun kazandığı becerileri günlük yaşama taşıması için gereklidir. Bu nedenle ebeveyn görüşmeleri düzenli olarak planlanır.",
     sessionFormat:
@@ -672,7 +672,7 @@ export const SERVICES: ServicePage[] = [
     ],
     credentials: [
       "Klinik Psikoloji yüksek lisansı",
-      "Çocuk ve ergenlerde kaygı çalışmalarında 5 yılı aşkın deneyim",
+      "Çocuk ve ergenlerle kaygı alanında çalışma deneyimi",
       "Oyun terapisi uygulama eğitimi",
     ],
     faqs: [
@@ -805,7 +805,7 @@ export const SERVICES: ServicePage[] = [
     ],
     credentials: [
       "Klinik Psikoloji yüksek lisansı",
-      "Çocuklarda davranış problemleri alanında yoğunlaşma ve 5 yılı aşkın uygulama",
+      "Çocuklarda davranış problemleri alanında yoğunlaşma",
       "Oyun terapisi uygulama eğitimi",
     ],
     faqs: [
@@ -924,7 +924,7 @@ export const SERVICES: ServicePage[] = [
       },
     ],
     ageGroups:
-      "Her yaş grubundan çocuğu olan ebeveynler için uygundur; gündem çocuğun yaşına göre şekillendirilir.",
+      `${PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenlerin ebeveynleriyle çalışılır. Görüşmelerin gündemi çocuğun yaşına göre şekillenir.`,
     parentInvolvement:
       "Bu hizmette birincil katılımcı ebeveyndir. Mümkün olduğunda iki ebeveynin de görüşmelere katılması önerilir; ortak çerçeve kurulduğunda sonuç belirgin biçimde iyileşir. Ayrı yaşayan ebeveynlerde görüşmeler ayrı da planlanabilir.",
     sessionFormat:
@@ -938,7 +938,7 @@ export const SERVICES: ServicePage[] = [
     ],
     credentials: [
       "Klinik Psikoloji yüksek lisansı",
-      "Ebeveyn danışmanlığı ve aile görüşmelerinde 5 yılı aşkın deneyim",
+      "Ebeveyn danışmanlığı ve aile görüşmelerinde uygulama deneyimi",
       "Çocuk ve ergen alanında uygulama yoğunlaşması",
     ],
     faqs: [

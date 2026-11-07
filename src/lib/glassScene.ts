@@ -135,6 +135,8 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
   const target = new THREE.Vector2();
   const current = new THREE.Vector2();
   const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const touchScreen = window.matchMedia("(pointer: coarse)");
+  let drag: { id: number; x: number; y: number; width: number } | undefined;
 
   function schedule() {
     if (frame || !ready || disposed || lost || !visible || document.hidden) return;
@@ -170,7 +172,9 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
     camera.lookAt(0, centerY, 0);
     camera.aspect = aspect;
     camera.setViewOffset(width, height, (0.5 - (mobile ? 0.51 : 0.715)) * width, 0, width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5, Math.sqrt(1600000 / (width * height))));
+    const coarsePointer = touchScreen.matches;
+    renderer.transmissionResolutionScale = coarsePointer ? 0.5 : 0.75;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1.2 : 1.5, Math.sqrt(1600000 / (width * height))));
     renderer.setSize(width, height, false);
     if (backdrop) {
       const imageAspect = backdrop.image.width / backdrop.image.height;
@@ -182,13 +186,34 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
     schedule();
   }
 
+  function startDrag(event: PointerEvent) {
+    if (event.pointerType === "mouse" || motionPreference.matches) return;
+    if (!event.isPrimary) { reset(); return; }
+    if (event.target instanceof Element && event.target.closest("a, button")) return;
+    const bounds = canvas.getBoundingClientRect();
+    if (event.clientY < bounds.top || event.clientY > bounds.bottom) return;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, width: bounds.width };
+  }
+
   function move(event: PointerEvent) {
-    if (event.pointerType !== "mouse" || motionPreference.matches) return;
-    const bounds = hero.getBoundingClientRect();
-    target.set(2 * (event.clientX - bounds.left) / bounds.width - 1, 2 * (event.clientY - bounds.top) / bounds.height - 1);
+    if (motionPreference.matches) return;
+    if (event.pointerType === "mouse") {
+      const bounds = hero.getBoundingClientRect();
+      target.set(2 * (event.clientX - bounds.left) / bounds.width - 1, 2 * (event.clientY - bounds.top) / bounds.height - 1);
+    } else {
+      if (!drag || event.pointerId !== drag.id) return;
+      const dx = event.clientX - drag.x;
+      const dy = event.clientY - drag.y;
+      if (Math.abs(dx) < 5 || Math.abs(dx) < Math.abs(dy)) return;
+      target.set(THREE.MathUtils.clamp(dx * 3 / drag.width, -1, 1), THREE.MathUtils.clamp(dy / drag.width, -1, 1));
+    }
     schedule();
   }
+  function endDrag(event: PointerEvent) {
+    if (drag?.id === event.pointerId) reset();
+  }
   function reset() {
+    drag = undefined;
     target.set(0, 0);
     if (motionPreference.matches) current.copy(target);
     schedule();
@@ -216,7 +241,10 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
   });
   resizeObserver.observe(canvas);
   visibilityObserver.observe(canvas);
+  hero.addEventListener("pointerdown", startDrag, { passive: true });
   hero.addEventListener("pointermove", move, { passive: true });
+  hero.addEventListener("pointerup", endDrag);
+  hero.addEventListener("pointercancel", endDrag);
   hero.addEventListener("pointerleave", reset);
   motionPreference.addEventListener("change", reset);
   document.addEventListener("visibilitychange", schedule);
@@ -240,6 +268,8 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
     scene.background = plate;
     environment.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = environment;
+    // Briefly show the changing reflection on devices that have no hover.
+    if (touchScreen.matches && !motionPreference.matches && !drag) current.x = -0.75;
     ready = true;
     resize();
   }).catch(dispose);
@@ -251,7 +281,10 @@ export function mountGlassScene(canvas: HTMLCanvasElement, hero: HTMLElement) {
     canvas.removeAttribute("data-ready");
     resizeObserver.disconnect();
     visibilityObserver.disconnect();
+    hero.removeEventListener("pointerdown", startDrag);
     hero.removeEventListener("pointermove", move);
+    hero.removeEventListener("pointerup", endDrag);
+    hero.removeEventListener("pointercancel", endDrag);
     hero.removeEventListener("pointerleave", reset);
     motionPreference.removeEventListener("change", reset);
     document.removeEventListener("visibilitychange", schedule);

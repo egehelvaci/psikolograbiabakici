@@ -9,7 +9,13 @@ import { MAIN_NAV } from "@/content/navigation";
 import { APPOINTMENT_MESSAGE, AUTHOR, ADDRESS, whatsappLink } from "@/lib/site";
 import { trackEvent } from "@/lib/analytics";
 import ProtectedImage from "./ProtectedImage";
-import PracticeMark from "./PracticeMark";
+
+function HeaderBrand() {
+  return <>
+    <span className="mast-logo"><ProtectedImage src="/images/logo.jpg" alt="" fill sizes="48px" /></span>
+    <span>{AUTHOR.name}<small>{AUTHOR.title}</small></span>
+  </>;
+}
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -38,7 +44,7 @@ export default function SiteHeader() {
     <header className={`masthead ${pathname === "/" ? "over-hero" : ""} ${overlay ? "is-clear" : ""}`}>
       <div className="container mast-inner">
         <Link href="/" className="mast-brand" aria-label={`${AUTHOR.name} — Ana sayfa`}>
-          <PracticeMark /><span>{AUTHOR.name}<small>{AUTHOR.title}</small></span>
+          <HeaderBrand />
         </Link>
         <nav className="mast-shortcuts" aria-label="Ana menü">
           <Link href="/hakkimda" aria-current={pathname === "/hakkimda" ? "page" : undefined}>Hakkımda</Link>
@@ -54,7 +60,7 @@ export default function SiteHeader() {
       <dialog ref={panel} id="site-menu" className="menu-dialog" aria-label="Site menüsü" onClose={() => setOpened(false)}>
         {opened && (
           <div className="container menu-sheet">
-            <div className="menu-top"><span className="mast-brand"><PracticeMark /><span>{AUTHOR.name}<small>{AUTHOR.title}</small></span></span>
+            <div className="menu-top"><span className="mast-brand"><HeaderBrand /></span>
               <button onClick={close} className="mast-menu" aria-label="Menüyü kapat" autoFocus>Kapat <X size={21} aria-hidden="true" /></button>
             </div>
             <div className="menu-columns">

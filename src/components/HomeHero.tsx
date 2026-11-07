@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import GlassSculpture from "@/components/GlassSculpture";
 import TrackedLink from "@/components/TrackedLink";
-import { APPOINTMENT_MESSAGE, whatsappLink } from "@/lib/site";
+import { APPOINTMENT_MESSAGE, PRACTICE_AGE_RANGE, whatsappLink } from "@/lib/site";
 
 export default function HomeHero() {
   const reduced = useReducedMotion();
@@ -26,7 +26,7 @@ export default function HomeHero() {
             <motion.span className="headline-line" style={reduced ? undefined : { x: firstLine }}><motion.span initial={false} animate={reduced ? undefined : { y: ["65%", "0%"] }} transition={{ duration: .8, ease: [.16, 1, .3, 1] }}>Büyümeye</motion.span></motion.span>
             <motion.span className="headline-line" style={reduced ? undefined : { x: secondLine }}><motion.em initial={false} animate={reduced ? undefined : { y: ["70%", "0%"] }} transition={{ duration: .92, ease: [.16, 1, .3, 1] }}>alan açmak.</motion.em></motion.span>
           </h1>
-          <p className="hero-lede">Ben Klinik Psikolog Rabia Bakıcı. Oyun, gözlem ve ebeveyn görüşmeleriyle çocukların ve ergenlerin duygularını ifade etmelerine eşlik ediyorum.</p>
+          <p className="hero-lede">Ben Klinik Psikolog Rabia Bakıcı. {PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenlerin duygularını ifade etmelerine oyun, gözlem ve ebeveyn görüşmeleriyle eşlik ediyorum.</p>
           <div className="hero-links">
             <TrackedLink className="atelier-action" href={whatsappLink(APPOINTMENT_MESSAGE)} target="_blank" rel="noopener noreferrer"
               event="generate_lead" eventParams={{ method: "whatsapp", cta_location: "hero" }}>Randevu talep et <ArrowUpRight size={17} aria-hidden="true" /></TrackedLink>

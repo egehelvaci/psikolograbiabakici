@@ -42,11 +42,15 @@ export const MAPS_EMBED_URL =
 
 /** Çalışma saatleri: görünür metin ve OpeningHoursSpecification tek kaynaktan. */
 export const OPENING_HOURS = [
-  { days: ["Monday", "Tuesday"], label: "Başakşehir · Pazartesi – Salı", opens: "12:00", closes: "19:00" },
-  { days: ["Wednesday", "Thursday", "Friday"], label: "Eyüpsultan · Çarşamba – Cuma", opens: "12:00", closes: "20:00" },
+  { location: "Başakşehir", days: ["Tuesday"], opens: "12:00", closes: "19:00" },
+  { location: "Eyüpsultan", days: ["Wednesday", "Thursday", "Friday"], opens: "12:00", closes: "20:00" },
 ] as const;
 
-export const OPENING_HOURS_DISPLAY = "Başakşehir: Pazartesi – Salı, 12:00 – 19:00 · Eyüpsultan: Çarşamba – Cuma, 12:00 – 20:00";
+const DAY_NAMES = { Tuesday: "Salı", Wednesday: "Çarşamba", Thursday: "Perşembe", Friday: "Cuma" };
+export const OPENING_HOURS_DISPLAY = OPENING_HOURS.map(({ location, days, opens, closes }) =>
+  `${location}: ${days.map(day => DAY_NAMES[day]).join(", ")} (${opens}–${closes})`
+).join(" · ");
+export const PRACTICE_AGE_RANGE = "2–14";
 
 /** İletişime dönüş süresi — abartısız ve tutulabilir bir taahhüt. */
 export const RESPONSE_TIME_DISPLAY = "Mesajlar genellikle aynı gün, en geç 1 iş günü içinde yanıtlanır.";
@@ -60,7 +64,7 @@ export const AUTHOR = {
   title: "Klinik Psikolog",
   credentials: "Klinik Psikoloji Yüksek Lisansı",
   shortBio:
-    "İstanbul Başakşehir'de çocuk ve ergenlerle çalışan klinik psikolog. Oyun terapisi ve çocuklarda davranış problemleri alanında 5 yılı aşkın deneyim.",
+    `Başakşehir ve Eyüpsultan’da ${PRACTICE_AGE_RANGE} yaş arası çocuk ve ergenlerle çalışan klinik psikolog. Oyun terapisi ve ebeveyn danışmanlığı alanlarında çalışır.`,
   image: "/images/rabiabakici.jpg",
   profileUrl: "/hakkimda",
 } as const;

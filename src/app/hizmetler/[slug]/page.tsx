@@ -180,8 +180,7 @@ export default async function ServicePageRoute({ params }: Params) {
                 <div>
                   <dt>Görüşme yeri ve saatleri</dt>
                   <dd>
-                    Görüşmeler {ADDRESS.display} bölgesinde, {OPENING_HOURS_DISPLAY}{" "}
-                    aralığında yapılır. Tam adres ve ulaşım bilgileri randevu
+                    {OPENING_HOURS_DISPLAY}. Tam adres ve ulaşım bilgileri randevu
                     onaylandığında paylaşılır.{" "}
                     <Link href="/iletisim">İletişim ve konum sayfası</Link>
                   </dd>
